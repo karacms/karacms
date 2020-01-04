@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-    Kara\Form::hello();
     return view('welcome');
+});
+
+Route::group(['as' => 'dashboard', 'prefix' => 'dashboard'], function () {
+    Route::resources([
+        'users' => 'UserController',
+        'roles' => 'RoleController'
+    ]);
 });
 
 Auth::routes();
