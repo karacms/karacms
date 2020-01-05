@@ -49476,7 +49476,31 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    search: '',
+    users: [],
+    queue: []
+  },
+  methods: {
+    performSearch: _.debounce(function () {
+      var _this = this;
+
+      axios.get('/api/users?search=' + this.search).then(function (_ref) {
+        var data = _ref.data;
+        _this.users = data;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    }, 300),
+    addToQueue: function addToQueue(user) {
+      this.queue.push(user);
+    },
+    removeFromQueue: function removeFromQueue(index, user) {
+      this.users.push(user);
+      this.queue.splice(index, 1);
+    }
+  }
 });
 
 /***/ }),

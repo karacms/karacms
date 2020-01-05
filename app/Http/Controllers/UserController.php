@@ -12,9 +12,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
+
+        if ($request->is('api/*')) {
+            return $users;    
+        }
 
         return view('users/index', compact('users'));
     }
@@ -40,6 +44,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+
 
         $user = User::create($data);
 

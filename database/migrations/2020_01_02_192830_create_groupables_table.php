@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupableTable extends Migration
+class CreateGroupablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateGroupableTable extends Migration
      */
     public function up()
     {
-        Schema::create('groupable', function (Blueprint $table) {
+        Schema::create('groupables', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('group_id');
             $table->morphs('groupable');
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ class CreateGroupableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groupable');
+        Schema::dropIfExists('groupables');
     }
 }

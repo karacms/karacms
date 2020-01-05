@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RoleController extends Controller
 {
@@ -13,7 +15,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Group::whereType('role')->get();
+
+        return view('roles/index', compact('roles'));
     }
 
     /**
@@ -23,7 +27,13 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $permissions = config('permissions');
+
+        $role = new Group([
+            'type' => 'role'
+        ]);
+
+        return view('roles/create', compact('role', 'permissions'));
     }
 
     /**
@@ -34,7 +44,12 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = array_filter($request->all());
+        $data['slug'] = Str::slug($data['name']);
+        
+        $role = Group::create($data);
+        
+        return redirect('dashboard/roles/' . $role->id)->withMessage('Role created!');
     }
 
     /**
@@ -43,9 +58,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Group $role, Request $request)
     {
-        //
+        return $this->edit($role, $request);
     }
 
     /**
@@ -54,9 +69,18 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Group $role, Request $request)
     {
-        //
+        $permissions = config('permissions');
+
+        $tabs = [
+            'general' => 'General',
+            'users' => 'Users'
+        ];
+
+        $currentTab = isset($request->tab) && $tabs[$request->tab] ? $request->tab : 'general';
+
+        return view('roles/edit', compact('role', 'permissions', 'tabs', 'currentTab'));
     }
 
     /**
@@ -66,9 +90,14 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Group $role)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name']);
+
+        $role->update($data);
+        
+        return redirect('dashboard/roles/' . $role->id)->withMessage('Role updated!');
     }
 
     /**

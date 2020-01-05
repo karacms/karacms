@@ -29,4 +29,27 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    data: {
+        search: '',
+        users: [],
+        queue: []
+    },
+    methods: {
+        performSearch: _.debounce(function () {
+            axios.get('/api/users?search=' + this.search).then(({data}) => {
+                this.users = data;
+            }).catch(error => {
+                console.error(error);
+            });
+        }, 300),
+
+        addToQueue: function (user) {
+            this.queue.push(user);
+        },
+
+        removeFromQueue: function (index, user) {
+            this.users.push(user);
+            this.queue.splice(index, 1);
+        }
+    }
 });

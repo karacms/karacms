@@ -15,12 +15,12 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug');
-            $table->string('type');
+            $table->string('slug')->nullable();
+            $table->string('type')->default('role');
             $table->string('name');
-            $table->text('description');
-            $table->json('meta');
-            $table->json('permissions');
+            $table->text('description')->nullable();
+            $table->json('meta')->nullable();
+            $table->json('permissions')->nullable();
             $table->unique(['slug', 'type']);
             $table->timestamps();
         });

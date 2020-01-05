@@ -34,6 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a href="/dashboard/users" class="nav-link">Users</a></li>
+                        <li><a href="/dashboard/roles" class="nav-link">Roles</a></li>
                         <li><a href="/dashboard/posts" class="nav-link">Posts</a></li>
                         <li><a href="/dashboard/media" class="nav-link">Media</a></li>
                     </ul>
