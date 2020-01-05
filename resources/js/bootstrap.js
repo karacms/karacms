@@ -39,3 +39,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+
+window.doPreview = input => {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = e => {
+            document.getElementById('preview').setAttribute('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

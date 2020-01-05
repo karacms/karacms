@@ -49548,6 +49548,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     encrypted: true
 // });
 
+window.doPreview = function (input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      document.getElementById('preview').setAttribute('src', e.target.result);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/components/ExampleComponent.vue":

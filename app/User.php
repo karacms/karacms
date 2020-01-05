@@ -41,4 +41,26 @@ class User extends Authenticatable
     {
         return $this->morphToMany('App\Group', 'groupable');
     }
+
+    public function getAvatar()
+    {
+        if (isset($this->avatar)) {
+            return $this->avatar;
+        }
+
+        return $this->getDefaultAvatar();        
+    }
+
+    private function getDefaultAvatar()
+    {
+        // @todo: Setting for default avatar
+        $defaultAvatar = '/images/avatars/no-avatar.png';
+
+        return $defaultAvatar;
+    }
+
+    public function getAvatarAttribute($value)
+    {
+        return isset($value) ? $value : $this->getDefaultAvatar();
+    }
 }
