@@ -179,6 +179,5 @@ module.exports = {
   plugins: [],
   corePlugins: {
     container: false
-  },
-  prefix: 'tw-'
+  }
 };

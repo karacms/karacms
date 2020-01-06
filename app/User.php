@@ -44,11 +44,7 @@ class User extends Authenticatable
 
     public function getAvatar()
     {
-        if (isset($this->avatar)) {
-            return $this->avatar;
-        }
-
-        return $this->getDefaultAvatar();        
+        return isset($this->avatar) ? $this->avatar : $this->getDefaultAvatar();        
     }
 
     private function getDefaultAvatar()

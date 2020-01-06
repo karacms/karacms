@@ -1,4 +1,5 @@
 # TailwindCSS dashboard
+    - Copy style of Jetbrain Space
 # Users and Roles
     - Show user avatar
     - Cannot delete higher role
@@ -8,3 +9,14 @@
 # Content Types
 
 # Custom Fields
+
+# Authentication views
+- Reset
+- Confirm
+- Email
+- Verify
+
+# Extensions
+- Forms
+- EduOne
+- Shop
