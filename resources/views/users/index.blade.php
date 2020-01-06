@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Users <a href="{{url('dashboard/users/create') }}" class="btn btn-sm btn-outline-secondary">Create</a></h1>
+    <h1 class="text-3xl">All Users <a href="{{url('dashboard/users/create') }}" class="bg-pink-800 rounded text-base px-2 py-1">Create</a></h1>
 
-    <table class="table table-bordered">
+    <table class="w-full mt-6">
         <thead>
             <tr>
                 <th>ID</th>
@@ -17,17 +17,18 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{$user->id}}</td>
-                <td><a title="Go to {{$user->name}}'s profile" href="{{url('/dashboard/users/' . $user->id)}}">{{$user->name}}</a></td>
+                <td><a class="text-blue-300" title="Go to {{$user->name}}'s profile" href="{{url('/dashboard/users/' . $user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
                 <td>
                     <form method="POST" action="{{url('/dashboard/users/' . $user->id)}}">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE" />
-                        <button class="btn btn-sm btn-danger">Delete</button>
-                        <a class="btn btn-outline-secondary btn-sm" href="{{url('/dashboard/users/' . $user->id)}}" title="Edit">Edit</a>
+                        <button class="rounded-sm border border-red-500 px-2 py-1">Delete</button>
+                        <a class="rounded-sm border border-gray-400 py-1 px-2" href="{{url('/dashboard/users/' . $user->id)}}" title="Edit">Edit</a>
                     </form>
                 </td>
             </tr>
+            
             @endforeach
         </tbody>
     </table>

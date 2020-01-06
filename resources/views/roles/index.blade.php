@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Roles <a href="{{url('dashboard/roles/create')}}" class="btn btn-outline-secondary" title="Create new role">Create</a></h1>
+<h1 class="text-3xl">Roles <a href="{{url('dashboard/roles/create')}}" class="rounded-sm bg-gray-400 text-gray-900 px-4 text-base py-1" title="Create new role">Create</a></h1>
 
 <table class="table table-bordered">
     <thead>

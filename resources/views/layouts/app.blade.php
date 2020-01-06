@@ -12,73 +12,68 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'WeCMS') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div id="app" class="flex">
+        <aside style="width: 60px" class="bg-gray-900 p-3 flex flex-col">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li><a href="/dashboard/users" class="nav-link">Users</a></li>
-                        <li><a href="/dashboard/roles" class="nav-link">Roles</a></li>
-                        <li><a href="/dashboard/posts" class="nav-link">Posts</a></li>
-                        <li><a href="/dashboard/media" class="nav-link">Media</a></li>
-                    </ul>
+            <div class="flex-grow">
+            <a href="#" title="Go to home">
+                <img src="/images/kara.svg" alt="Logo" />
+            </a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+            <nav class="mt-6">
+                <ul>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><view-dashboard-icon class="text-3xl" /></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><post-icon /></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><hexagon-multiple-icon /></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><account-group-icon /></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><tune-icon /></li>
+                </ul>
+            </nav>
             </div>
-        </nav>
 
-        <main class="py-4">
-            <div class="container">
-                @include('components/message')
-                @yield('content')
+            <div class="flex-shrink mb-5">
+                <a href="#" title="View profile">
+                    <img style="width: 36px; height: 36px;" class="rounded-full shadow-md" src="/images/avatars/linda.jpeg" alt="Linda's Avatar" />
+                </a>
+            </div>
+        </aside>
+
+        <aside style="width: 240px" class="bg-gray-800">
+            <div class="px-5 py-3">
+                <h1 class="text-2xl mb-5">Users</h1>
+                <h2 class="text-base text-gray-600">Users</h2>
+                <ul class="mt-4">
+                    <li class="mt-4 text-gray-400">All Users</li>
+                    <li class="mt-4 text-gray-400">Create New User</li>
+                </ul>
+            </div>
+
+            <div class="py-3 px-5">
+                <h2 class="text-base text-gray-600 mt-10">Roles</h2>
+                <ul class="mt-4">
+                    <li class="mt-4 text-gray-400">All Roles</li>
+                    <li class="mt-4 text-gray-400">Administrators <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
+                    <li class="mt-4 text-gray-400">Editors <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
+                    <li class="mt-4 text-gray-400">Subscribers <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
+                    <li class="mt-4 text-gray-400">Create New Role</li>
+                </ul>
+            </div>
+        </aside>
+        <main class="p-6 bg-gray-900 flex-auto">
+            <div class="flex flex-col h-full">
+                <div class="flex-grow">
+                    @include('components/message')
+                    @yield('content')
+                </div>
+                <footer class="text-gray-500 text-sm mt-10">
+                    Thanks for creating with KaraCMS.
+                </footer>
             </div>
         </main>
     </div>

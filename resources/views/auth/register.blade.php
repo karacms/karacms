@@ -9,7 +9,6 @@
 
         <fieldset class="mt-4">
             <label for="name">{{ __('Name') }}</label>
-
             <input id="name" type="text" class="w-full mt-1 bg-gray-700 px-2 py-1 rounded-sm  @error('name') border border-red-500 @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
             @error('name')
@@ -17,21 +16,17 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-
         </fieldset>
 
         <fieldset class="mt-4">
             <label for="email">{{ __('Email') }}</label>
+            <input id="email" type="email" class="w-full mt-1 bg-gray-700 px-2 py-1 rounded-sm @error('email') border border-red-500 @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-            <div class="col-md-6">
-                <input id="email" type="email" class="w-full mt-1 bg-gray-700 px-2 py-1 rounded-sm @error('email') border border-red-500 @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                @error('email')
-                <span class="text-red-500" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
+            @error('email')
+            <span class="text-red-500" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </fieldset>
 
         <fieldset class="mt-4">

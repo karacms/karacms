@@ -2,8 +2,9 @@
     - Copy style of Jetbrain Space
 # Users and Roles
     - Show user avatar
+    - Change user avatar
     - Cannot delete higher role
-    - Login As extension
+    - Login As
 # Groups
     - Add users to group
 # Content Types
@@ -20,3 +21,4 @@
 - Forms
 - EduOne
 - Shop
+- Login As

@@ -14945,6 +14945,11 @@ video {
   z-index: auto;
 }
 
+html, body, #app {
+  width: 100%;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   font-family: Rubik, "Helvetica Neue", sans-serif;
@@ -14955,7 +14960,7 @@ body {
 table th,
 table td {
   padding: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333;
 }
 
 table th {
