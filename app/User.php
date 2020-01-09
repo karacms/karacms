@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return isset($value) ? $value : $this->getDefaultAvatar();
     }
+
+    public function getDisplayNameAttribute($value)
+    {
+        return $this->name;
+    }
 }

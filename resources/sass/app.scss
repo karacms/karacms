@@ -11,17 +11,14 @@ body {
     margin: 0;
     font-family: Rubik, 'Helvetica Neue', sans-serif;
     @apply bg-gray-900 text-gray-300;
-  }
-  
-  table {
-  
-    th,
-    td {
-      padding: 15px;
-      border-bottom: 1px solid #333;
-    }
-  
+}
+
+table {
     th {
-      text-align: left;
+        text-align: left;
     }
-  }
+
+    th, td {
+        padding: 5px 10px;
+    }
+}

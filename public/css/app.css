@@ -14957,14 +14957,12 @@ body {
   color: #d1d5da;
 }
 
-table th,
-table td {
-  padding: 15px;
-  border-bottom: 1px solid #333;
-}
-
 table th {
   text-align: left;
+}
+
+table th, table td {
+  padding: 5px 10px;
 }
 
 @media (min-width: 640px) {

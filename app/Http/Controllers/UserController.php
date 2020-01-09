@@ -45,8 +45,6 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-
-
         $user = User::create($data);
 
         return redirect(url('/dashboard/users/' . $user->id))->withMessage('User created!');
@@ -58,9 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, Request $request)
     {
-        return $this->edit($user);
+        return $this->edit($user, $request);
     }
 
     /**
@@ -69,9 +67,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, Request $request)
     {
-        return view('users/edit', compact('user'));
+        $tabs = [
+            'general' => 'General',
+            'attributes' => 'Attributes',
+            'permissions' => 'Permissions'
+        ];
+
+        $activeTab = $request->tab ?? 'general';
+
+        return view('users/edit', compact('user', 'tabs', 'activeTab'));
     }
 
     /**

@@ -5,6 +5,7 @@
     - Change user avatar
     - Cannot delete higher role
     - Login As
+    - Profile Page
 # Groups
     - Add users to group
 # Content Types

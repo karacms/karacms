@@ -3,28 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
+    <title>{{ config('app.name', 'KaraCMS') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body>    
     <div id="app" class="flex">
         <aside style="width: 60px" class="bg-gray-900 p-3 flex flex-col">
-
             <div class="flex-grow">
-            <a href="#" title="Go to home">
-                <img src="/images/kara.svg" alt="Logo" />
-            </a>
+            <div class="logo mt-3">
+                <div class="flex">
+                    <div class="w-3 h-3 bg-green-400"></div>
+                    <div class="w-3 h-3 bg-yellow-400 -mt-1 ml-1" style="transform: rotate(45deg)"></div>
+                </div>
+                <div class="flex">
+                    <div class="w-3 h-3 bg-blue-400"></div>
+                    <div class="w-3 h-3 bg-red-400"></div>
+                </div>
+            </div>
 
             <nav class="mt-6">
                 <ul>
@@ -45,27 +43,10 @@
         </aside>
 
         <aside style="width: 240px" class="bg-gray-800">
-            <div class="px-5 py-3">
-                <h1 class="text-2xl mb-5">Users</h1>
-                <h2 class="text-base text-gray-600">Users</h2>
-                <ul class="mt-4">
-                    <li class="mt-4 text-gray-400">All Users</li>
-                    <li class="mt-4 text-gray-400">Create New User</li>
-                </ul>
-            </div>
-
-            <div class="py-3 px-5">
-                <h2 class="text-base text-gray-600 mt-10">Roles</h2>
-                <ul class="mt-4">
-                    <li class="mt-4 text-gray-400">All Roles</li>
-                    <li class="mt-4 text-gray-400">Administrators <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
-                    <li class="mt-4 text-gray-400">Editors <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
-                    <li class="mt-4 text-gray-400">Subscribers <span class="float-right rounded-full bg-gray-500 w-6 text-center">9</span></li>
-                    <li class="mt-4 text-gray-400">Create New Role</li>
-                </ul>
-            </div>
+            @yield('sidebar')
         </aside>
-        <main class="p-6 bg-gray-900 flex-auto">
+
+        <main class="p-6 flex-auto">
             <div class="flex flex-col h-full">
                 <div class="flex-grow">
                     @include('components/message')
