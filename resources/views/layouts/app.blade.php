@@ -26,11 +26,11 @@
 
             <nav class="mt-6">
                 <ul>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><view-dashboard-icon class="text-3xl" /></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><post-icon /></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><hexagon-multiple-icon /></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><account-group-icon /></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><tune-icon /></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard')}}"><view-dashboard-icon class="text-3xl" /></a></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard/content')}}"><post-icon /></a></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a title="Extensions" href="{{url('/dashboard/extensions')}}"><hexagon-multiple-icon /></a></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a title="Users" href="{{url('/dashboard/users')}}"><account-group-icon /></a></li>
+                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard/users')}}"><tune-icon /></a></li>
                 </ul>
             </nav>
             </div>

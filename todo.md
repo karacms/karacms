@@ -1,5 +1,5 @@
-# TailwindCSS dashboard
-    - Copy style of Jetbrain Space
+# Dashboard
+    - Move main menu to setting to allow users register menu
 # Users and Roles
     - Show user avatar
     - Change user avatar

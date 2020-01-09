@@ -1,14 +1,10 @@
 <div class="px-5 py-3">
-    <h1 class="text-2xl">Edit User</h1>
-
-    <div class="avatar w-32 mt-6">
-        <img src="{{$user->getAvatar()}}" alt="Avatar" width="120" height="120" />
-        <!-- <button class="w-full bg-gray-600 z-10 p-3 text-gray-200" type="button" data-toggle="modal" data-target="#avatar-modal">
-            Change Avatar
-        </button> -->
-
-        <h2 class="mt-2 text-xl">{{$user->display_name}}</h2>
+    <div class="relative w-full mt-3">
+        <img src="{{$user->getAvatar()}}" alt="Avatar" width="200" height="200" class="rounded" />
+        <button class="absolute bottom-0 ml-3 mb-2 bg-gray-800 py-1 px-2 rounded-sm text-sm opacity-75">Edit</button>
     </div>
+
+    <h1 class="mt-2 text-2xl">{{$user->display_name}}</h1>
 
     <ul class="mt-6">
         @foreach ($tabs as $name => $title)
