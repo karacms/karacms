@@ -10,7 +10,6 @@ html, body, #app {
 body {
     margin: 0;
     font-family: Rubik, 'Helvetica Neue', sans-serif;
-    @apply bg-gray-900 text-gray-300;
 }
 
 table {
@@ -21,4 +20,8 @@ table {
     th, td {
         padding: 5px 10px;
     }
+}
+
+button, input, optgroup, select, textarea {
+    line-height: normal;
 }

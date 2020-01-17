@@ -663,6 +663,18 @@ video {
   background-attachment: scroll;
 }
 
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-teal-100 {
   background-color: #dcf6f2;
 }
@@ -1223,6 +1235,18 @@ video {
   background-color: #fffdef;
 }
 
+.hover\:bg-white:hover {
+  background-color: #fff;
+}
+
+.hover\:bg-black:hover {
+  background-color: #000;
+}
+
+.hover\:bg-transparent:hover {
+  background-color: transparent;
+}
+
 .hover\:bg-teal-100:hover {
   background-color: #dcf6f2;
 }
@@ -1781,6 +1805,18 @@ video {
 
 .hover\:bg-yellow-000:hover {
   background-color: #fffdef;
+}
+
+.focus\:bg-white:focus {
+  background-color: #fff;
+}
+
+.focus\:bg-black:focus {
+  background-color: #000;
+}
+
+.focus\:bg-transparent:focus {
+  background-color: transparent;
 }
 
 .focus\:bg-teal-100:focus {
@@ -2423,6 +2459,18 @@ video {
   border-collapse: separate;
 }
 
+.border-white {
+  border-color: #fff;
+}
+
+.border-black {
+  border-color: #000;
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
 .border-teal-100 {
   border-color: #dcf6f2;
 }
@@ -2983,6 +3031,18 @@ video {
   border-color: #fffdef;
 }
 
+.hover\:border-white:hover {
+  border-color: #fff;
+}
+
+.hover\:border-black:hover {
+  border-color: #000;
+}
+
+.hover\:border-transparent:hover {
+  border-color: transparent;
+}
+
 .hover\:border-teal-100:hover {
   border-color: #dcf6f2;
 }
@@ -3541,6 +3601,18 @@ video {
 
 .hover\:border-yellow-000:hover {
   border-color: #fffdef;
+}
+
+.focus\:border-white:focus {
+  border-color: #fff;
+}
+
+.focus\:border-black:focus {
+  border-color: #000;
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
 }
 
 .focus\:border-teal-100:focus {
@@ -6973,6 +7045,66 @@ video {
   padding-left: 1px;
 }
 
+.placeholder-white::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.placeholder-white::-moz-placeholder {
+  color: #fff;
+}
+
+.placeholder-white:-ms-input-placeholder {
+  color: #fff;
+}
+
+.placeholder-white::-ms-input-placeholder {
+  color: #fff;
+}
+
+.placeholder-white::placeholder {
+  color: #fff;
+}
+
+.placeholder-black::-webkit-input-placeholder {
+  color: #000;
+}
+
+.placeholder-black::-moz-placeholder {
+  color: #000;
+}
+
+.placeholder-black:-ms-input-placeholder {
+  color: #000;
+}
+
+.placeholder-black::-ms-input-placeholder {
+  color: #000;
+}
+
+.placeholder-black::placeholder {
+  color: #000;
+}
+
+.placeholder-transparent::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.placeholder-transparent::-moz-placeholder {
+  color: transparent;
+}
+
+.placeholder-transparent:-ms-input-placeholder {
+  color: transparent;
+}
+
+.placeholder-transparent::-ms-input-placeholder {
+  color: transparent;
+}
+
+.placeholder-transparent::placeholder {
+  color: transparent;
+}
+
 .placeholder-teal-100::-webkit-input-placeholder {
   color: #dcf6f2;
 }
@@ -9771,6 +9903,66 @@ video {
 
 .placeholder-yellow-000::placeholder {
   color: #fffdef;
+}
+
+.focus\:placeholder-white:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-white:focus::-moz-placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-white:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-white:focus::-ms-input-placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-white:focus::placeholder {
+  color: #fff;
+}
+
+.focus\:placeholder-black:focus::-webkit-input-placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-black:focus::-moz-placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-black:focus:-ms-input-placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-black:focus::-ms-input-placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-black:focus::placeholder {
+  color: #000;
+}
+
+.focus\:placeholder-transparent:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.focus\:placeholder-transparent:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.focus\:placeholder-transparent:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.focus\:placeholder-transparent:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.focus\:placeholder-transparent:focus::placeholder {
+  color: transparent;
 }
 
 .focus\:placeholder-teal-100:focus::-webkit-input-placeholder {
@@ -12812,6 +13004,18 @@ video {
   text-align: justify;
 }
 
+.text-white {
+  color: #fff;
+}
+
+.text-black {
+  color: #000;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
 .text-teal-100 {
   color: #dcf6f2;
 }
@@ -13372,6 +13576,18 @@ video {
   color: #fffdef;
 }
 
+.hover\:text-white:hover {
+  color: #fff;
+}
+
+.hover\:text-black:hover {
+  color: #000;
+}
+
+.hover\:text-transparent:hover {
+  color: transparent;
+}
+
 .hover\:text-teal-100:hover {
   color: #dcf6f2;
 }
@@ -13930,6 +14146,18 @@ video {
 
 .hover\:text-yellow-000:hover {
   color: #fffdef;
+}
+
+.focus\:text-white:focus {
+  color: #fff;
+}
+
+.focus\:text-black:focus {
+  color: #000;
+}
+
+.focus\:text-transparent:focus {
+  color: transparent;
 }
 
 .focus\:text-teal-100:focus {
@@ -14953,8 +15181,6 @@ html, body, #app {
 body {
   margin: 0;
   font-family: Rubik, "Helvetica Neue", sans-serif;
-  background-color: #24292e;
-  color: #d1d5da;
 }
 
 table th {
@@ -14963,6 +15189,10 @@ table th {
 
 table th, table td {
   padding: 5px 10px;
+}
+
+button, input, optgroup, select, textarea {
+  line-height: normal;
 }
 
 @media (min-width: 640px) {
@@ -15028,6 +15258,18 @@ table th, table td {
 
   .sm\:bg-scroll {
     background-attachment: scroll;
+  }
+
+  .sm\:bg-white {
+    background-color: #fff;
+  }
+
+  .sm\:bg-black {
+    background-color: #000;
+  }
+
+  .sm\:bg-transparent {
+    background-color: transparent;
   }
 
   .sm\:bg-teal-100 {
@@ -15590,6 +15832,18 @@ table th, table td {
     background-color: #fffdef;
   }
 
+  .sm\:hover\:bg-white:hover {
+    background-color: #fff;
+  }
+
+  .sm\:hover\:bg-black:hover {
+    background-color: #000;
+  }
+
+  .sm\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
   .sm\:hover\:bg-teal-100:hover {
     background-color: #dcf6f2;
   }
@@ -16148,6 +16402,18 @@ table th, table td {
 
   .sm\:hover\:bg-yellow-000:hover {
     background-color: #fffdef;
+  }
+
+  .sm\:focus\:bg-white:focus {
+    background-color: #fff;
+  }
+
+  .sm\:focus\:bg-black:focus {
+    background-color: #000;
+  }
+
+  .sm\:focus\:bg-transparent:focus {
+    background-color: transparent;
   }
 
   .sm\:focus\:bg-teal-100:focus {
@@ -16790,6 +17056,18 @@ table th, table td {
     border-collapse: separate;
   }
 
+  .sm\:border-white {
+    border-color: #fff;
+  }
+
+  .sm\:border-black {
+    border-color: #000;
+  }
+
+  .sm\:border-transparent {
+    border-color: transparent;
+  }
+
   .sm\:border-teal-100 {
     border-color: #dcf6f2;
   }
@@ -17350,6 +17628,18 @@ table th, table td {
     border-color: #fffdef;
   }
 
+  .sm\:hover\:border-white:hover {
+    border-color: #fff;
+  }
+
+  .sm\:hover\:border-black:hover {
+    border-color: #000;
+  }
+
+  .sm\:hover\:border-transparent:hover {
+    border-color: transparent;
+  }
+
   .sm\:hover\:border-teal-100:hover {
     border-color: #dcf6f2;
   }
@@ -17908,6 +18198,18 @@ table th, table td {
 
   .sm\:hover\:border-yellow-000:hover {
     border-color: #fffdef;
+  }
+
+  .sm\:focus\:border-white:focus {
+    border-color: #fff;
+  }
+
+  .sm\:focus\:border-black:focus {
+    border-color: #000;
+  }
+
+  .sm\:focus\:border-transparent:focus {
+    border-color: transparent;
   }
 
   .sm\:focus\:border-teal-100:focus {
@@ -21340,6 +21642,66 @@ table th, table td {
     padding-left: 1px;
   }
 
+  .sm\:placeholder-white::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-white::-moz-placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-white:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-white::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .sm\:placeholder-black::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-black::-moz-placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-black:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-black::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .sm\:placeholder-transparent::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:placeholder-transparent::-moz-placeholder {
+    color: transparent;
+  }
+
+  .sm\:placeholder-transparent:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:placeholder-transparent::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
   .sm\:placeholder-teal-100::-webkit-input-placeholder {
     color: #dcf6f2;
   }
@@ -24138,6 +24500,66 @@ table th, table td {
 
   .sm\:placeholder-yellow-000::placeholder {
     color: #fffdef;
+  }
+
+  .sm\:focus\:placeholder-white:focus::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-white:focus::-moz-placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-white:focus:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-white:focus::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .sm\:focus\:placeholder-black:focus::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-black:focus::-moz-placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-black:focus:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-black:focus::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .sm\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
   }
 
   .sm\:focus\:placeholder-teal-100:focus::-webkit-input-placeholder {
@@ -27179,6 +27601,18 @@ table th, table td {
     text-align: justify;
   }
 
+  .sm\:text-white {
+    color: #fff;
+  }
+
+  .sm\:text-black {
+    color: #000;
+  }
+
+  .sm\:text-transparent {
+    color: transparent;
+  }
+
   .sm\:text-teal-100 {
     color: #dcf6f2;
   }
@@ -27739,6 +28173,18 @@ table th, table td {
     color: #fffdef;
   }
 
+  .sm\:hover\:text-white:hover {
+    color: #fff;
+  }
+
+  .sm\:hover\:text-black:hover {
+    color: #000;
+  }
+
+  .sm\:hover\:text-transparent:hover {
+    color: transparent;
+  }
+
   .sm\:hover\:text-teal-100:hover {
     color: #dcf6f2;
   }
@@ -28297,6 +28743,18 @@ table th, table td {
 
   .sm\:hover\:text-yellow-000:hover {
     color: #fffdef;
+  }
+
+  .sm\:focus\:text-white:focus {
+    color: #fff;
+  }
+
+  .sm\:focus\:text-black:focus {
+    color: #000;
+  }
+
+  .sm\:focus\:text-transparent:focus {
+    color: transparent;
   }
 
   .sm\:focus\:text-teal-100:focus {
@@ -29378,6 +29836,18 @@ table th, table td {
     background-attachment: scroll;
   }
 
+  .md\:bg-white {
+    background-color: #fff;
+  }
+
+  .md\:bg-black {
+    background-color: #000;
+  }
+
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
   .md\:bg-teal-100 {
     background-color: #dcf6f2;
   }
@@ -29938,6 +30408,18 @@ table th, table td {
     background-color: #fffdef;
   }
 
+  .md\:hover\:bg-white:hover {
+    background-color: #fff;
+  }
+
+  .md\:hover\:bg-black:hover {
+    background-color: #000;
+  }
+
+  .md\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
   .md\:hover\:bg-teal-100:hover {
     background-color: #dcf6f2;
   }
@@ -30496,6 +30978,18 @@ table th, table td {
 
   .md\:hover\:bg-yellow-000:hover {
     background-color: #fffdef;
+  }
+
+  .md\:focus\:bg-white:focus {
+    background-color: #fff;
+  }
+
+  .md\:focus\:bg-black:focus {
+    background-color: #000;
+  }
+
+  .md\:focus\:bg-transparent:focus {
+    background-color: transparent;
   }
 
   .md\:focus\:bg-teal-100:focus {
@@ -31138,6 +31632,18 @@ table th, table td {
     border-collapse: separate;
   }
 
+  .md\:border-white {
+    border-color: #fff;
+  }
+
+  .md\:border-black {
+    border-color: #000;
+  }
+
+  .md\:border-transparent {
+    border-color: transparent;
+  }
+
   .md\:border-teal-100 {
     border-color: #dcf6f2;
   }
@@ -31698,6 +32204,18 @@ table th, table td {
     border-color: #fffdef;
   }
 
+  .md\:hover\:border-white:hover {
+    border-color: #fff;
+  }
+
+  .md\:hover\:border-black:hover {
+    border-color: #000;
+  }
+
+  .md\:hover\:border-transparent:hover {
+    border-color: transparent;
+  }
+
   .md\:hover\:border-teal-100:hover {
     border-color: #dcf6f2;
   }
@@ -32256,6 +32774,18 @@ table th, table td {
 
   .md\:hover\:border-yellow-000:hover {
     border-color: #fffdef;
+  }
+
+  .md\:focus\:border-white:focus {
+    border-color: #fff;
+  }
+
+  .md\:focus\:border-black:focus {
+    border-color: #000;
+  }
+
+  .md\:focus\:border-transparent:focus {
+    border-color: transparent;
   }
 
   .md\:focus\:border-teal-100:focus {
@@ -35688,6 +36218,66 @@ table th, table td {
     padding-left: 1px;
   }
 
+  .md\:placeholder-white::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-white::-moz-placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-white:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-white::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .md\:placeholder-black::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-black::-moz-placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-black:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-black::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .md\:placeholder-transparent::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:placeholder-transparent::-moz-placeholder {
+    color: transparent;
+  }
+
+  .md\:placeholder-transparent:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:placeholder-transparent::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
   .md\:placeholder-teal-100::-webkit-input-placeholder {
     color: #dcf6f2;
   }
@@ -38486,6 +39076,66 @@ table th, table td {
 
   .md\:placeholder-yellow-000::placeholder {
     color: #fffdef;
+  }
+
+  .md\:focus\:placeholder-white:focus::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-white:focus::-moz-placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-white:focus:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-white:focus::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .md\:focus\:placeholder-black:focus::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-black:focus::-moz-placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-black:focus:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-black:focus::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .md\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:focus\:placeholder-transparent:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  .md\:focus\:placeholder-transparent:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:focus\:placeholder-transparent:focus::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .md\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
   }
 
   .md\:focus\:placeholder-teal-100:focus::-webkit-input-placeholder {
@@ -41527,6 +42177,18 @@ table th, table td {
     text-align: justify;
   }
 
+  .md\:text-white {
+    color: #fff;
+  }
+
+  .md\:text-black {
+    color: #000;
+  }
+
+  .md\:text-transparent {
+    color: transparent;
+  }
+
   .md\:text-teal-100 {
     color: #dcf6f2;
   }
@@ -42087,6 +42749,18 @@ table th, table td {
     color: #fffdef;
   }
 
+  .md\:hover\:text-white:hover {
+    color: #fff;
+  }
+
+  .md\:hover\:text-black:hover {
+    color: #000;
+  }
+
+  .md\:hover\:text-transparent:hover {
+    color: transparent;
+  }
+
   .md\:hover\:text-teal-100:hover {
     color: #dcf6f2;
   }
@@ -42645,6 +43319,18 @@ table th, table td {
 
   .md\:hover\:text-yellow-000:hover {
     color: #fffdef;
+  }
+
+  .md\:focus\:text-white:focus {
+    color: #fff;
+  }
+
+  .md\:focus\:text-black:focus {
+    color: #000;
+  }
+
+  .md\:focus\:text-transparent:focus {
+    color: transparent;
   }
 
   .md\:focus\:text-teal-100:focus {
@@ -43726,6 +44412,18 @@ table th, table td {
     background-attachment: scroll;
   }
 
+  .lg\:bg-white {
+    background-color: #fff;
+  }
+
+  .lg\:bg-black {
+    background-color: #000;
+  }
+
+  .lg\:bg-transparent {
+    background-color: transparent;
+  }
+
   .lg\:bg-teal-100 {
     background-color: #dcf6f2;
   }
@@ -44286,6 +44984,18 @@ table th, table td {
     background-color: #fffdef;
   }
 
+  .lg\:hover\:bg-white:hover {
+    background-color: #fff;
+  }
+
+  .lg\:hover\:bg-black:hover {
+    background-color: #000;
+  }
+
+  .lg\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
   .lg\:hover\:bg-teal-100:hover {
     background-color: #dcf6f2;
   }
@@ -44844,6 +45554,18 @@ table th, table td {
 
   .lg\:hover\:bg-yellow-000:hover {
     background-color: #fffdef;
+  }
+
+  .lg\:focus\:bg-white:focus {
+    background-color: #fff;
+  }
+
+  .lg\:focus\:bg-black:focus {
+    background-color: #000;
+  }
+
+  .lg\:focus\:bg-transparent:focus {
+    background-color: transparent;
   }
 
   .lg\:focus\:bg-teal-100:focus {
@@ -45486,6 +46208,18 @@ table th, table td {
     border-collapse: separate;
   }
 
+  .lg\:border-white {
+    border-color: #fff;
+  }
+
+  .lg\:border-black {
+    border-color: #000;
+  }
+
+  .lg\:border-transparent {
+    border-color: transparent;
+  }
+
   .lg\:border-teal-100 {
     border-color: #dcf6f2;
   }
@@ -46046,6 +46780,18 @@ table th, table td {
     border-color: #fffdef;
   }
 
+  .lg\:hover\:border-white:hover {
+    border-color: #fff;
+  }
+
+  .lg\:hover\:border-black:hover {
+    border-color: #000;
+  }
+
+  .lg\:hover\:border-transparent:hover {
+    border-color: transparent;
+  }
+
   .lg\:hover\:border-teal-100:hover {
     border-color: #dcf6f2;
   }
@@ -46604,6 +47350,18 @@ table th, table td {
 
   .lg\:hover\:border-yellow-000:hover {
     border-color: #fffdef;
+  }
+
+  .lg\:focus\:border-white:focus {
+    border-color: #fff;
+  }
+
+  .lg\:focus\:border-black:focus {
+    border-color: #000;
+  }
+
+  .lg\:focus\:border-transparent:focus {
+    border-color: transparent;
   }
 
   .lg\:focus\:border-teal-100:focus {
@@ -50036,6 +50794,66 @@ table th, table td {
     padding-left: 1px;
   }
 
+  .lg\:placeholder-white::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-white::-moz-placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-white:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-white::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .lg\:placeholder-black::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-black::-moz-placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-black:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-black::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .lg\:placeholder-transparent::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:placeholder-transparent::-moz-placeholder {
+    color: transparent;
+  }
+
+  .lg\:placeholder-transparent:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:placeholder-transparent::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
   .lg\:placeholder-teal-100::-webkit-input-placeholder {
     color: #dcf6f2;
   }
@@ -52834,6 +53652,66 @@ table th, table td {
 
   .lg\:placeholder-yellow-000::placeholder {
     color: #fffdef;
+  }
+
+  .lg\:focus\:placeholder-white:focus::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-white:focus::-moz-placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-white:focus:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-white:focus::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .lg\:focus\:placeholder-black:focus::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-black:focus::-moz-placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-black:focus:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-black:focus::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .lg\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
   }
 
   .lg\:focus\:placeholder-teal-100:focus::-webkit-input-placeholder {
@@ -55875,6 +56753,18 @@ table th, table td {
     text-align: justify;
   }
 
+  .lg\:text-white {
+    color: #fff;
+  }
+
+  .lg\:text-black {
+    color: #000;
+  }
+
+  .lg\:text-transparent {
+    color: transparent;
+  }
+
   .lg\:text-teal-100 {
     color: #dcf6f2;
   }
@@ -56435,6 +57325,18 @@ table th, table td {
     color: #fffdef;
   }
 
+  .lg\:hover\:text-white:hover {
+    color: #fff;
+  }
+
+  .lg\:hover\:text-black:hover {
+    color: #000;
+  }
+
+  .lg\:hover\:text-transparent:hover {
+    color: transparent;
+  }
+
   .lg\:hover\:text-teal-100:hover {
     color: #dcf6f2;
   }
@@ -56993,6 +57895,18 @@ table th, table td {
 
   .lg\:hover\:text-yellow-000:hover {
     color: #fffdef;
+  }
+
+  .lg\:focus\:text-white:focus {
+    color: #fff;
+  }
+
+  .lg\:focus\:text-black:focus {
+    color: #000;
+  }
+
+  .lg\:focus\:text-transparent:focus {
+    color: transparent;
   }
 
   .lg\:focus\:text-teal-100:focus {
@@ -58074,6 +58988,18 @@ table th, table td {
     background-attachment: scroll;
   }
 
+  .xl\:bg-white {
+    background-color: #fff;
+  }
+
+  .xl\:bg-black {
+    background-color: #000;
+  }
+
+  .xl\:bg-transparent {
+    background-color: transparent;
+  }
+
   .xl\:bg-teal-100 {
     background-color: #dcf6f2;
   }
@@ -58634,6 +59560,18 @@ table th, table td {
     background-color: #fffdef;
   }
 
+  .xl\:hover\:bg-white:hover {
+    background-color: #fff;
+  }
+
+  .xl\:hover\:bg-black:hover {
+    background-color: #000;
+  }
+
+  .xl\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
   .xl\:hover\:bg-teal-100:hover {
     background-color: #dcf6f2;
   }
@@ -59192,6 +60130,18 @@ table th, table td {
 
   .xl\:hover\:bg-yellow-000:hover {
     background-color: #fffdef;
+  }
+
+  .xl\:focus\:bg-white:focus {
+    background-color: #fff;
+  }
+
+  .xl\:focus\:bg-black:focus {
+    background-color: #000;
+  }
+
+  .xl\:focus\:bg-transparent:focus {
+    background-color: transparent;
   }
 
   .xl\:focus\:bg-teal-100:focus {
@@ -59834,6 +60784,18 @@ table th, table td {
     border-collapse: separate;
   }
 
+  .xl\:border-white {
+    border-color: #fff;
+  }
+
+  .xl\:border-black {
+    border-color: #000;
+  }
+
+  .xl\:border-transparent {
+    border-color: transparent;
+  }
+
   .xl\:border-teal-100 {
     border-color: #dcf6f2;
   }
@@ -60394,6 +61356,18 @@ table th, table td {
     border-color: #fffdef;
   }
 
+  .xl\:hover\:border-white:hover {
+    border-color: #fff;
+  }
+
+  .xl\:hover\:border-black:hover {
+    border-color: #000;
+  }
+
+  .xl\:hover\:border-transparent:hover {
+    border-color: transparent;
+  }
+
   .xl\:hover\:border-teal-100:hover {
     border-color: #dcf6f2;
   }
@@ -60952,6 +61926,18 @@ table th, table td {
 
   .xl\:hover\:border-yellow-000:hover {
     border-color: #fffdef;
+  }
+
+  .xl\:focus\:border-white:focus {
+    border-color: #fff;
+  }
+
+  .xl\:focus\:border-black:focus {
+    border-color: #000;
+  }
+
+  .xl\:focus\:border-transparent:focus {
+    border-color: transparent;
   }
 
   .xl\:focus\:border-teal-100:focus {
@@ -64384,6 +65370,66 @@ table th, table td {
     padding-left: 1px;
   }
 
+  .xl\:placeholder-white::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-white::-moz-placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-white:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-white::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-white::placeholder {
+    color: #fff;
+  }
+
+  .xl\:placeholder-black::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-black::-moz-placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-black:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-black::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-black::placeholder {
+    color: #000;
+  }
+
+  .xl\:placeholder-transparent::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:placeholder-transparent::-moz-placeholder {
+    color: transparent;
+  }
+
+  .xl\:placeholder-transparent:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:placeholder-transparent::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:placeholder-transparent::placeholder {
+    color: transparent;
+  }
+
   .xl\:placeholder-teal-100::-webkit-input-placeholder {
     color: #dcf6f2;
   }
@@ -67182,6 +68228,66 @@ table th, table td {
 
   .xl\:placeholder-yellow-000::placeholder {
     color: #fffdef;
+  }
+
+  .xl\:focus\:placeholder-white:focus::-webkit-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-white:focus::-moz-placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-white:focus:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-white:focus::-ms-input-placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-white:focus::placeholder {
+    color: #fff;
+  }
+
+  .xl\:focus\:placeholder-black:focus::-webkit-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-black:focus::-moz-placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-black:focus:-ms-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-black:focus::-ms-input-placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-black:focus::placeholder {
+    color: #000;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .xl\:focus\:placeholder-transparent:focus::placeholder {
+    color: transparent;
   }
 
   .xl\:focus\:placeholder-teal-100:focus::-webkit-input-placeholder {
@@ -70223,6 +71329,18 @@ table th, table td {
     text-align: justify;
   }
 
+  .xl\:text-white {
+    color: #fff;
+  }
+
+  .xl\:text-black {
+    color: #000;
+  }
+
+  .xl\:text-transparent {
+    color: transparent;
+  }
+
   .xl\:text-teal-100 {
     color: #dcf6f2;
   }
@@ -70783,6 +71901,18 @@ table th, table td {
     color: #fffdef;
   }
 
+  .xl\:hover\:text-white:hover {
+    color: #fff;
+  }
+
+  .xl\:hover\:text-black:hover {
+    color: #000;
+  }
+
+  .xl\:hover\:text-transparent:hover {
+    color: transparent;
+  }
+
   .xl\:hover\:text-teal-100:hover {
     color: #dcf6f2;
   }
@@ -71341,6 +72471,18 @@ table th, table td {
 
   .xl\:hover\:text-yellow-000:hover {
     color: #fffdef;
+  }
+
+  .xl\:focus\:text-white:focus {
+    color: #fff;
+  }
+
+  .xl\:focus\:text-black:focus {
+    color: #000;
+  }
+
+  .xl\:focus\:text-transparent:focus {
+    color: transparent;
   }
 
   .xl\:focus\:text-teal-100:focus {

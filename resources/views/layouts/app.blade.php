@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>    
+<body>
     <div id="app" class="flex">
-        <aside style="width: 60px" class="bg-gray-900 p-3 flex flex-col">
+        <aside style="width: 60px" class="p-3 flex flex-col">
             <div class="flex-grow">
             <div class="logo mt-3">
                 <div class="flex">
@@ -26,11 +26,11 @@
 
             <nav class="mt-6">
                 <ul>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard')}}"><view-dashboard-icon class="text-3xl" /></a></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard/content')}}"><post-icon /></a></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a title="Extensions" href="{{url('/dashboard/extensions')}}"><hexagon-multiple-icon /></a></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a title="Users" href="{{url('/dashboard/users')}}"><account-group-icon /></a></li>
-                    <li class="text-3xl text-gray-500 hover:text-gray-300 mt-3"><a href="{{url('/dashboard/users')}}"><tune-icon /></a></li>
+                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard')}}"><view-dashboard-icon class="text-3xl" /></a></li>
+                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard/content')}}"><post-icon /></a></li>
+                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a title="Extensions" href="{{url('/dashboard/extensions')}}"><hexagon-multiple-icon /></a></li>
+                    <li class="text-3xl text-blue-400 hover:text-gray-600 mt-3"><a title="Users" href="{{url('/dashboard/users')}}"><account-group-icon /></a></li>
+                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard/users')}}"><tune-icon /></a></li>
                 </ul>
             </nav>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </aside>
 
-        <aside style="width: 240px" class="bg-gray-800">
+        <aside style="width: 240px" class="bg-gray-200">
             @yield('sidebar')
         </aside>
 
@@ -53,7 +53,7 @@
                     @yield('content')
                 </div>
                 <footer class="text-gray-500 text-sm mt-10">
-                    Thanks for creating with KaraCMS.
+                    Thanks for creating with <a class="text-cyan-500" href="https://karacms.org">KaraCMS</a>.
                 </footer>
             </div>
         </main>
