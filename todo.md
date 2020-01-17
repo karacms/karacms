@@ -6,6 +6,7 @@
     - Cannot delete higher role
     - Login As
     - Profile Page
+    - Don't let user delete administrator group
 # Groups
     - Add users to group
 # Content Types

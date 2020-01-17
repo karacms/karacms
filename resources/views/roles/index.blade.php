@@ -22,23 +22,23 @@
 
     <tbody>
         @if ($roles->count() === 0)
-        <tr>
+        <tr class="border border-b">
             <td colspan="4">
                 <div class="text-center my-4">No role. Consider to <a href="{{url('dashboard/roles/create')}}" title="Create new role" class="px-2 py-1 bg-gray-300 rounded-sm">Create new one</a></div>
             </td>
         </tr>
         @else
         @foreach ($roles as $role)
-        <tr>
-            <td><a href="{{url('/dashboard/roles/'. $role->id) }}" title="Edit role {{$role->name}}">{{$role->name}}</a></td>
-            <td>{{$role->description}}</td>
-            <td>{{$role->users->count()}}</td>
-            <td>
+        <tr class="border border-b">
+            <td class="py-2"><a class="text-cyan-500" href="{{url('/dashboard/roles/'. $role->id) }}" title="Edit role {{$role->name}}">{{$role->name}}</a></td>
+            <td class="py-2">{{$role->description}}</td>
+            <td class="py-2">{{$role->users->count()}}</td>
+            <td class="py-2">
                 <form method="POST" action="{{url('/dashboard/roles/' . $role->id)}}">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                    <a class="btn btn-outline-secondary btn-sm" href="{{url('/dashboard/roles/' . $role->id)}}" title="Edit Role">Edit</a>
+                    <button type="button" class="p-1 rounded-sm border-red-300 text-red-300 border">Delete</button>
+                    <a class="p-1 rounded-sm border-gray-500 text-gray-500 border" href="{{url('/dashboard/roles/' . $role->id)}}" title="Edit Role">Edit</a>
                 </form>
             </td>
         <tr>
