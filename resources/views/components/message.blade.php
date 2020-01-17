@@ -1,5 +1,5 @@
 @if ( ! empty(session('message')))
-<div class="alert alert-warning">
+<div class="bg-teal-100 p-4 flex rounded">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>

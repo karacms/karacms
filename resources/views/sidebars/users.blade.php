@@ -2,8 +2,8 @@
     <h1 class="text-2xl mb-5">Users</h1>
     <h2 class="text-sm text-gray-400">Users</h2>
     <ul class="mt-4">
-        <li class="mt-4 text-gray-600"><a class="hover:text-gray-200" href="{{url('/dashboard/users')}}">All Users</a></li>
-        <li class="mt-4 text-gray-600"><a class="hover:text-gray-200" href="{{url('/dashboard/users/create')}}">Create New User</a></li>
+        <li class="mt-4 text-gray-600"><a class="hover:text-gray-800" href="{{url('/dashboard/users')}}">All Users</a></li>
+        <li class="mt-4 text-gray-600"><a class="hover:text-gray-800" href="{{url('/dashboard/users/create')}}">Create New User</a></li>
     </ul>
 </div>
 

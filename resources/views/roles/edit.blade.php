@@ -1,23 +1,15 @@
 @extends('layouts.app')
 
+@section('sidebar')
+  @include('sidebars/users')
+@endsection
+
 @section('content')
-    <h1>Update Role</h1>
+    <h1 class="text-cyan-500 text-2xl">Update Role</h1>
 
-    <ul class="nav nav-tabs">
-        @foreach ($tabs as $key => $value)
-        <li class="nav-item">
-            <a class="nav-link {{$key === $currentTab ? 'active' : ''}}" href="?tab={{$key}}">{{$value}}</a>
-        </li>
-        @endforeach
-    </ul>
-
-    <form method="POST" action="{{url('/dashboard/roles/' . $role->id)}}" class="row">
+    <form method="POST" action="{{url('/dashboard/roles/' . $role->id)}}">
+        @csrf
         @method('PUT')
-        
-        @if ($currentTab === 'general')
-            @include('roles/_form')
-        @else
-            @include('roles/_users')
-        @endif
+        @include('roles/_form')
     </form>
 @endsection
