@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -42,11 +42,6 @@ class User extends Authenticatable
         return $this->morphToMany('App\Group', 'groupable');
     }
 
-    public function getAvatar()
-    {
-        return isset($this->avatar) ? $this->avatar : $this->getDefaultAvatar();        
-    }
-
     private function getDefaultAvatar()
     {
         // @todo: Setting for default avatar
@@ -57,7 +52,7 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return isset($value) ? $value : $this->getDefaultAvatar();
+        return isset($value) ? url('storage/avatars/' . $value) : $this->getDefaultAvatar();
     }
 
     public function getDisplayNameAttribute($value)

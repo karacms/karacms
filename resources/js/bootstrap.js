@@ -44,11 +44,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.doPreview = input => {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
-
+        console.log(input.files);
         reader.onload = e => {
             document.getElementById('preview').setAttribute('src', e.target.result);
         };
-
         reader.readAsDataURL(input.files[0]);
+
+        document.getElementById('edit-avatar').classList.toggle('hidden');
+        document.getElementById('save-avatar').classList.toggle('hidden');
     }
 }

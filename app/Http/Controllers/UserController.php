@@ -94,11 +94,22 @@ class UserController extends Controller
     {
         $data = array_filter($request->all());
 
+        // Store Avatar
+        if ($request->file('avatar')) {
+            $avatarPath = $request->file('avatar')->store('public/avatars');
+            $avatarName = last(explode('/', $avatarPath));
+            $data['avatar'] = $avatarName;
+        }
+
         if (isset($data['password'])) {
             $data['password'] = bcrypt($data['password']);
         }
 
-        $user->groups()->sync([$data['role']]);
+        if (isset($data['role'])) {
+            $user->groups()->sync([$data['role']]);
+        }
+
+        $user->update($data);
 
         return back()->withMessage('User updated!');
     }

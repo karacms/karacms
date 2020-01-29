@@ -51,7 +51,7 @@
 
             <div class="flex-shrink mb-5">
                 <a href="#" title="View profile">
-                    <img style="width: 36px; height: 36px;" class="rounded-full shadow-md" src="/images/avatars/linda.jpeg" alt="Linda's Avatar" />
+                    <img style="width: 36px; height: 36px;" class="rounded-full shadow-md object-cover" src="{{ Auth::user()->avatar }}" alt="Linda's Avatar" />
                 </a>
             </div>
         </aside>

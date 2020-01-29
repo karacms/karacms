@@ -18,8 +18,8 @@
             </select>
             
             <select class="px-2 py-1 bg-white border h-8 leading-tight">
-                @foreach ($groups as $id => $name)
                 <option value="" disabled selected>All Role</option>
+                @foreach ($groups as $id => $name)
                 <option value="{{$id}}">{{$name}}</option>
                 @endforeach
             </select>
@@ -40,7 +40,12 @@
             @foreach ($users as $user)
             <tr class="border-b border-gray-200">
                 <td>{{$user->id}}</td>
-                <td><a class="text-indigo-500" title="Go to {{$user->name}}'s profile" href="{{url('/dashboard/users/' . $user->id)}}">{{$user->name}}</a></td>
+                <td>
+                    <a class="text-indigo-500" title="Go to {{$user->name}}'s profile" href="{{url('/dashboard/users/' . $user->id)}}">
+                        <img src="{{$user->avatar}}" alt="{{$user->name}}'s avatar" class="w-6 h-6 inline-block object-cover rounded-sm mr-1" />
+                        {{$user->name}}
+                    </a>
+                </td>
                 <td>{{$user->email}}</td>
                 <td>
                     @if (isset($user->groups))   
