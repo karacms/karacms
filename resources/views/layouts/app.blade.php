@@ -20,27 +20,27 @@
 
                 <nav class="mt-6">
                     <ul>
-                        <li class="text-3xl text-white mt-3 p-0">
+                        <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
                                 <span class="uim-svg hover:bg-gray-400">{!! svg('line/dashboard') !!}</span>
                             </a>
                         </li>
-                        <li class="text-3xl text-white mt-3 p-0">
+                        <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
                                 <span class="uim-svg hover:bg-gray-400">{!! svg('line/file') !!}</span>
                             </a>
                         </li>
-                        <li class="text-3xl text-white mt-3 p-0">
+                        <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
                                 <span class="uim-svg hover:bg-gray-400">{!! svg('line/cube') !!}</span>
                             </a>
                         </li>
-                        <li class="text-3xl text-white mt-3 p-0">
+                        <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
                                 <span class="uim-svg hover:bg-gray-400">{!! svg('line/users-alt') !!}</span>
                             </a>
                         </li>
-                        <li class="text-3xl text-white mt-3 p-0">
+                        <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
                                 <span class="uim-svg hover:bg-gray-400">{!! svg('line/sliders-v') !!}</span>
                             </a>
