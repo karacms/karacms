@@ -120,8 +120,10 @@ class RoleController extends Controller
 
             // Then delete this role
             $role->delete();
-        } catch (\Exception $e) {
+
             return back()->withMessage('Error during deleting user!');
+        } catch (\Exception $e) {
+            return redirect('dashboard/roles')->withMessage('Error during deleting user!');
         }
     }
 }

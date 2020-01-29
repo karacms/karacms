@@ -2,10 +2,13 @@
     - Move main menu to setting to allow users register menu
 
 # Users and Roles
+    - Search and filter
+    - Pagination
     - Login As
     - Hit Update on Update profile doesn't update avatar because it's located in other form. Maybe change the style
     - User Attributes
     - User Permissions
+    - User with lower role cannot create user with higher role
 
 # Media
     - Use Uppy to upload media
