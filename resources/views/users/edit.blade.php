@@ -30,8 +30,8 @@
         </fieldset>
 
         <fieldset class="mt-10">
-            <button type="submit" class="bg-cyan-500 text-white rounded-sm p-2">Update</button>
-            <a href="{{url('dashboard/users')}}" title="Go back" class="ml-3 text-cyan-500">Back</a>
+            <button type="submit" class="bg-indigo-500 text-white rounded-sm p-2">Update</button>
+            <a href="{{url('dashboard/users')}}" title="Go back" class="ml-3 text-indigo-500">Back</a>
         </fieldset>
     </form>
 @endsection
