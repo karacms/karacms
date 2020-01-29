@@ -12,15 +12,16 @@
         <form class="mt-4">
             <input type="search" class="border px-2 py-1 h-8 leading-tight" placeholder="Search users..." />
             <select class="px-2 py-1 bg-white border h-8 leading-tight">
-                <option value="">Gender</option>
-                <option value="">Male</option>
-                <option value="">Female</option>
+                <option value="" disabled selected>All Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
             </select>
             
             <select class="px-2 py-1 bg-white border h-8 leading-tight">
-                <option value="">Role</option>
-                <option value="">Administrator</option>
-                <option value="">Subscriber</option>
+                @foreach ($groups as $id => $name)
+                <option value="" disabled selected>All Role</option>
+                <option value="{{$id}}">{{$name}}</option>
+                @endforeach
             </select>
         </form>
     </header>
@@ -30,6 +31,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,6 +42,13 @@
                 <td>{{$user->id}}</td>
                 <td><a class="text-indigo-500" title="Go to {{$user->name}}'s profile" href="{{url('/dashboard/users/' . $user->id)}}">{{$user->name}}</a></td>
                 <td>{{$user->email}}</td>
+                <td>
+                    @if (isset($user->groups))   
+                        @foreach($user->groups as $group)
+                            {{$group->name}}
+                        @endforeach
+                    @endif
+                </td>
                 <td>
                     <form method="POST" action="{{url('/dashboard/users/' . $user->id)}}">
                         @csrf

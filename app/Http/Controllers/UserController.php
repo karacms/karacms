@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,10 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::all();
-
-        if ($request->is('api/*')) {
-            return $users;    
-        }
-
-        return view('users/index', compact('users'));
+        $groups = Group::type('role')->pluck('name', 'id');
+        $users = User::with('groups')->paginate(20);
+        dd($users[1]->groups->first()->name);
+        return frontend('users/index', compact('users', 'groups'));
     }
 
     /**
@@ -30,9 +28,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user = new User();
+        $user = new User;
+        $roles = Group::type('role')->get();
 
-        return view('users/create', compact('user'));
+        return frontend('users/create', compact('user', 'roles'));
     }
 
     /**
@@ -43,9 +42,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = array_filter($request->all());
+        $data['password'] = bcrypt($data['password']);
 
         $user = User::create($data);
+        $user->groups()->attach($data['role']);
 
         return redirect(url('/dashboard/users/' . $user->id))->withMessage('User created!');
     }

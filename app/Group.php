@@ -16,8 +16,22 @@ class Group extends Model
 
     public function users()
     {
-        return $this->morphedByMany('App\User', 'groupable');
+        return $this->morphedByMany(User::class, 'groupable');
     }
+
+    /**
+     * Check if group has specified permission
+     *
+     * @param String $permission
+     *
+     * @return bool
+     */
+    public function hasPermission($permission)
+    {
+        return (is_array($this->permissions) && isset($this->permissions[$permission]) && $this->permissions[$permission] == true) ||
+               (isset($this->permissions['administrator']) && $this->permissions['administrator'] == true);
+    }
+
 
     public function getSlugAttribute($value)
     {
@@ -27,5 +41,10 @@ class Group extends Model
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = empty($value) ? Str::slug($this->attributes['name']) : $value;
+    }
+
+    public function scopeType($query, $type)
+    {
+        return $query->where('type', $type);
     }
 }

@@ -16,6 +16,13 @@ function svg($icon)
     return file_exists($path) ? file_get_contents($path) : '';
 }
 
+/**
+ * Pass data to api or view based on URL scheme
+ */
+function frontend($path, $data) {
+    return request()->is('api/*') ? $data : view($path, $data);
+}
+
 Route::get('/', function () {
     return view('welcome');
 });

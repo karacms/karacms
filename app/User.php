@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Impersonatable, HasCreator, HasMeta;
 
     /**
      * The attributes that are mass assignable.
@@ -62,6 +62,12 @@ class User extends Authenticatable
 
     public function getDisplayNameAttribute($value)
     {
-        return $this->name;
+        return isset($value) ? $value : $this->name;
     }
+
+    public function getRoleAttribute($value)
+    {
+        return $this->groups()->type('role')->first();
+    }
+    
 }
