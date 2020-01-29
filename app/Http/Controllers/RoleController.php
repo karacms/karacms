@@ -106,8 +106,22 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Group $role)
     {
-        //
+        // Administrator role cannot be deleted
+        if ($role->slug === 'administrator') {
+            return back()->withErrors('Cannot delete Administrator group!');
+        }
+
+        try {
+
+            // Remove all users associated with this role
+            $role->users()->detach();
+
+            // Then delete this role
+            $role->delete();
+        } catch (\Exception $e) {
+            return back()->withMessage('Error during deleting user!');
+        }
     }
 }

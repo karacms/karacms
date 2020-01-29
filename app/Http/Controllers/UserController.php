@@ -71,7 +71,7 @@ class UserController extends Controller
     public function edit(User $user, Request $request)
     {
         $roles = Group::type('role')->get();
-
+        $userRoles = $user->groups()->type('role')->get()->keyBy('id');
         $tabs = [
             'general' => 'General',
             'attributes' => 'Attributes',
@@ -80,7 +80,7 @@ class UserController extends Controller
 
         $activeTab = $request->tab ?? 'general';
 
-        return frontend('users/edit', compact('user', 'tabs', 'activeTab', 'roles'));
+        return frontend('users/edit', compact('user', 'tabs', 'activeTab', 'roles', 'userRoles'));
     }
 
     /**
@@ -98,6 +98,7 @@ class UserController extends Controller
             $data['password'] = bcrypt($data['password']);
         }
 
+        $user->groups()->sync([$data['role']]);
 
         return back()->withMessage('User updated!');
     }

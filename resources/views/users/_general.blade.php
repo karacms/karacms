@@ -13,7 +13,7 @@
     <label for="role">Role</label>
     <select name="role" id="role" class="w-full bg-white mt-1 p-2 h-10 border border-gray-300 hover:border-gray-400 rounded-sm">
         @foreach ($roles as $role)
-        <option value="{{$role->id}}">{{$role->name}}</option>
+        <option value="{{$role->id}}" {{isset($userRoles) && isset($userRoles[$role->id]) ? 'selected' : ''}}>{{$role->name}}</option>
         @endforeach
     </select>
 </fieldset>

@@ -34,12 +34,14 @@
             <td class="py-2">{{$role->description}}</td>
             <td class="py-2">{{$role->users->count()}}</td>
             <td class="py-2">
-                <form method="POST" action="{{url('/dashboard/roles/' . $role->id)}}">
+                @if ($role->slug !== 'administrator')
+                <form method="POST" action="{{url('/dashboard/roles/' . $role->id)}}" onsubmit="return confirm('This cannot be undone, do you want to continue?')">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="p-1 rounded-sm border-red-300 text-red-300 border">Delete</button>
+                    <button type="submit" class="p-1 rounded-sm border-red-300 text-red-300 border">Delete</button>
                     <a class="p-1 rounded-sm border-gray-500 text-gray-500 border" href="{{url('/dashboard/roles/' . $role->id)}}" title="Edit Role">Edit</a>
                 </form>
+                @endif
             </td>
         <tr>
             @endforeach
