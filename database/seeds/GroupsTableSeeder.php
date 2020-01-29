@@ -20,5 +20,21 @@ class GroupsTableSeeder extends Seeder
                 'administrator' => 1
             ]
         ]);
+
+        App\Group::create([
+            'slug' => 'editor',
+            'type' => 'role',
+            'name' => 'Editor',
+            'description' => 'Editor Role',
+            'permissions' => []
+        ]);
+
+        App\Group::create([
+            'slug' => 'subscriber',
+            'type' => 'role',
+            'name' => 'Subscriber',
+            'description' => 'Subscriber Role',
+            'permissions' => []
+        ]);
     }
 }

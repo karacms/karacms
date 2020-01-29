@@ -17,5 +17,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@karacms.com',
             'password' => bcrypt('123456')
         ]);
+        
+        // Add Administrator Role for $admin
+        $admin->groups()->attach([1]);
     }
 }

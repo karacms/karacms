@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $groups = Group::type('role')->pluck('name', 'id');
         $users = User::with('groups')->paginate(20);
-        dd($users[1]->groups->first()->name);
+
         return frontend('users/index', compact('users', 'groups'));
     }
 
@@ -70,6 +70,8 @@ class UserController extends Controller
      */
     public function edit(User $user, Request $request)
     {
+        $roles = Group::type('role')->get();
+
         $tabs = [
             'general' => 'General',
             'attributes' => 'Attributes',
@@ -78,7 +80,7 @@ class UserController extends Controller
 
         $activeTab = $request->tab ?? 'general';
 
-        return view('users/edit', compact('user', 'tabs', 'activeTab'));
+        return frontend('users/edit', compact('user', 'tabs', 'activeTab', 'roles'));
     }
 
     /**
@@ -88,9 +90,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $data = array_filter($request->all());
+
+        if (isset($data['password'])) {
+            $data['password'] = bcrypt($data['password']);
+        }
+
+
+        return back()->withMessage('User updated!');
     }
 
     /**

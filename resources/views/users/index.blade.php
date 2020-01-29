@@ -11,7 +11,7 @@
 
         <form class="mt-4">
             <input type="search" class="border px-2 py-1 h-8 leading-tight" placeholder="Search users..." />
-            <select class="px-2 py-1 bg-white border h-8 leading-tight">
+            <select class="px-2 py-1 pr-4 bg-white border h-8 leading-tight">
                 <option value="" disabled selected>All Gender</option>
                 <option value="0">Male</option>
                 <option value="1">Female</option>
@@ -45,7 +45,7 @@
                 <td>
                     @if (isset($user->groups))   
                         @foreach($user->groups as $group)
-                            {{$group->name}}
+                            <small class="text-gray-500">{{$group->name}}</small>
                         @endforeach
                     @endif
                 </td>
