@@ -7,32 +7,46 @@
     <title>{{ config('app.name', 'KaraCMS') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app" class="flex">
-        <aside style="width: 60px" class="p-3 flex flex-col">
+        <aside style="width: 60px" class="p-3 flex flex-col bg-gray-500">
             <div class="flex-grow">
-            <div class="logo mt-3">
-                <div class="flex">
-                    <div class="w-3 h-3 bg-green-400"></div>
-                    <div class="w-3 h-3 bg-yellow-400 -mt-1 ml-1" style="transform: rotate(45deg)"></div>
+                <div class="logo mt-3">
+                    <img src="/images/kara.svg" alt="Logo" />
                 </div>
-                <div class="flex">
-                    <div class="w-3 h-3 bg-blue-400"></div>
-                    <div class="w-3 h-3 bg-red-400"></div>
-                </div>
-            </div>
 
-            <nav class="mt-6">
-                <ul>
-                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard')}}"><view-dashboard-icon class="text-3xl" /></a></li>
-                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard/content')}}"><post-icon /></a></li>
-                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a title="Extensions" href="{{url('/dashboard/extensions')}}"><hexagon-multiple-icon /></a></li>
-                    <li class="text-3xl text-blue-400 hover:text-gray-600 mt-3"><a title="Users" href="{{url('/dashboard/users')}}"><account-group-icon /></a></li>
-                    <li class="text-3xl text-gray-400 hover:text-gray-600 mt-3"><a href="{{url('/dashboard/users')}}"><tune-icon /></a></li>
-                </ul>
-            </nav>
+                <nav class="mt-6">
+                    <ul>
+                        <li class="text-3xl text-white mt-3 p-0">
+                            <a href="{{url('/dashboard/users')}}">
+                                <span class="uim-svg hover:bg-gray-400">{!! svg('line/dashboard') !!}</span>
+                            </a>
+                        </li>
+                        <li class="text-3xl text-white mt-3 p-0">
+                            <a href="{{url('/dashboard/users')}}">
+                                <span class="uim-svg hover:bg-gray-400">{!! svg('line/file') !!}</span>
+                            </a>
+                        </li>
+                        <li class="text-3xl text-white mt-3 p-0">
+                            <a href="{{url('/dashboard/users')}}">
+                                <span class="uim-svg hover:bg-gray-400">{!! svg('line/cube') !!}</span>
+                            </a>
+                        </li>
+                        <li class="text-3xl text-white mt-3 p-0">
+                            <a href="{{url('/dashboard/users')}}">
+                                <span class="uim-svg hover:bg-gray-400">{!! svg('line/users-alt') !!}</span>
+                            </a>
+                        </li>
+                        <li class="text-3xl text-white mt-3 p-0">
+                            <a href="{{url('/dashboard/users')}}">
+                                <span class="uim-svg hover:bg-gray-400">{!! svg('line/sliders-v') !!}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
 
             <div class="flex-shrink mb-5">
@@ -42,7 +56,7 @@
             </div>
         </aside>
 
-        <aside style="width: 240px" class="bg-gray-200">
+        <aside style="width: 240px" class="bg-gray-100">
             @yield('sidebar')
         </aside>
 

@@ -10,6 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+function svg($icon)
+{
+    $path = public_path() . '/unicons/svg/' . $icon . '.svg';
+    return file_exists($path) ? file_get_contents($path) : '';
+}
 
 Route::get('/', function () {
     return view('welcome');

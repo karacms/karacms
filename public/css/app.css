@@ -15173,7 +15173,64 @@ video {
   z-index: auto;
 }
 
-html, body, #app {
+:root {
+  --uim-primary-opacity: 1;
+  --uim-secondary-opacity: 0.7;
+  --uim-tertiary-opacity: 0.5;
+  --uim-quaternary-opacity: 0.25;
+  --uim-quinary-opacity: 0;
+}
+
+.uim-svg {
+  display: inline-block;
+  height: 1em;
+  font-size: inherit;
+  fill: var(--uim-color, currentColor);
+}
+
+.uim-svg svg {
+  display: inline-block;
+  min-width: 1em;
+}
+
+.uim-primary {
+  opacity: var(--uim-primary-opacity);
+}
+
+.uim-secondary {
+  opacity: var(--uim-secondary-opacity);
+}
+
+.uim-tertiary {
+  opacity: var(--uim-tertiary-opacity);
+}
+
+.uim-quaternary {
+  opacity: var(--uim-quaternary-opacity);
+}
+
+.uim-quinary {
+  opacity: var(--uim-quinary-opacity);
+}
+
+nav .uim-svg {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: flex;
+}
+
+nav .uim-svg svg {
+  min-width: 1em;
+  width: 100%;
+  padding: 7px;
+}
+
+html,
+body,
+#app {
   width: 100%;
   min-height: 100vh;
 }
@@ -15187,11 +15244,16 @@ table th {
   text-align: left;
 }
 
-table th, table td {
+table th,
+table td {
   padding: 5px 10px;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   line-height: normal;
 }
 

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1 class="text-2xl text-cyan-500">Create User</h1>
+    <h1 class="text-2xl">Create User</h1>
 
     <form method="POST" action="{{url('dashboard/users')}}" class="mt-4 w-4/12">
         @csrf
