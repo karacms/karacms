@@ -10,13 +10,14 @@
         <a href="{{url('dashboard/users/create') }}" class="border-gray-300 border rounded text-base px-2 py-1 ml-1">Create</a>
 
         <form class="mt-4">
-            <input type="search" class="border px-2 py-1 leading-tight" placeholder="Search users..." />
-            <select class="px-2 py-1 bg-white border leading-tight">
+            <input type="search" class="border px-2 py-1 h-8 leading-tight" placeholder="Search users..." />
+            <select class="px-2 py-1 bg-white border h-8 leading-tight">
                 <option value="">Gender</option>
                 <option value="">Male</option>
                 <option value="">Female</option>
             </select>
-            <select class="px-2 py-1 bg-white border leading-tight">
+            
+            <select class="px-2 py-1 bg-white border h-8 leading-tight">
                 <option value="">Role</option>
                 <option value="">Administrator</option>
                 <option value="">Subscriber</option>

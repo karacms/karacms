@@ -6,7 +6,7 @@
 
 @section('content')
 <header>
-    <h1 class="text-2xl text-cyan-500 inline">Roles</h1>
+    <h1 class="text-2xl inline">Roles</h1>
     <a href="{{url('dashboard/roles/create')}}" class="rounded-sm border-gray-300 border text-gray-900 px-4 text-base py-1 ml-1" title="Create new role">Create</a>
 </header>
 
@@ -30,7 +30,7 @@
         @else
         @foreach ($roles as $role)
         <tr class="border border-b">
-            <td class="py-2"><a class="text-cyan-500" href="{{url('/dashboard/roles/'. $role->id) }}" title="Edit role {{$role->name}}">{{$role->name}}</a></td>
+            <td class="py-2"><a class="text-indigo-500" href="{{url('/dashboard/roles/'. $role->id) }}" title="Edit role {{$role->name}}">{{$role->name}}</a></td>
             <td class="py-2">{{$role->description}}</td>
             <td class="py-2">{{$role->users->count()}}</td>
             <td class="py-2">

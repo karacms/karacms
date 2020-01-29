@@ -12,7 +12,7 @@
         </fieldset>
 
         <fieldset class="mt-3">
-            <button type="submit" class="bg-cyan-500 rounded-sm text-white p-2">Save Changes</button>
+            <button type="submit" class="bg-indigo-500 rounded-sm text-white p-2">Save Changes</button>
         </fieldset>
     </div>
 

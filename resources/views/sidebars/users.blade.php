@@ -1,4 +1,4 @@
-<div class="px-5 py-3">
+<div class="p-6">
     <h1 class="text-2xl mb-5 text-white">Users</h1>
     <h2 class="text-sm text-gray-400">Users</h2>
     <ul class="mt-4">
