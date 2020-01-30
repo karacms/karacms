@@ -49292,7 +49292,9 @@ var app = new Vue({
   data: {
     search: '',
     users: [],
-    queue: []
+    queue: [],
+    // Content Type
+    fields: []
   },
   methods: {
     performSearch: _.debounce(function () {
@@ -49311,6 +49313,19 @@ var app = new Vue({
     removeFromQueue: function removeFromQueue(index, user) {
       this.users.push(user);
       this.queue.splice(index, 1);
+    },
+    addField: function addField(type) {
+      var field = {
+        type: type,
+        key: '',
+        "default": '',
+        isRequired: false,
+        isUnique: false,
+        minLength: null,
+        maxLength: null,
+        attributes: []
+      };
+      this.fields.push(field);
     }
   }
 });

@@ -29,7 +29,10 @@ const app = new Vue({
     data: {
         search: '',
         users: [],
-        queue: []
+        queue: [],
+        
+        // Content Type
+        fields: []
     },
     methods: {
         performSearch: _.debounce(function () {
@@ -47,6 +50,22 @@ const app = new Vue({
         removeFromQueue: function (index, user) {
             this.users.push(user);
             this.queue.splice(index, 1);
+        },
+
+        addField: function (type) {
+            
+            const field = {
+                type,
+                key: '',
+                default: '',
+                isRequired: false,
+                isUnique: false,
+                minLength: null,
+                maxLength: null,
+                attributes: []
+            };
+
+            this.fields.push(field);
         }
     }
 });

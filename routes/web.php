@@ -11,6 +11,7 @@
 |
 */
 
+use App\Content;
 use App\Group;
 use App\Setting;
 
@@ -23,7 +24,7 @@ function svg($icon)
 /**
  * Pass data to api or view based on URL scheme
  */
-function frontend($path, $data) {
+function frontend($path, $data = []) {
     return request()->is('api/*') ? $data : view($path, $data);
 }
 
@@ -34,7 +35,9 @@ Route::get('/', function () {
 Route::group(['as' => 'dashboard', 'prefix' => 'dashboard'], function () {
     Route::resources([
         'users' => 'UserController',
-        'roles' => 'RoleController'
+        'roles' => 'RoleController',
+        'content' => 'ContentController',
+        'attributes' => 'AttributeController'
     ]);
 });
 
@@ -43,5 +46,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    dd(Setting::get('foo'));
+    
+
+    Content::getAllTypes();
 });

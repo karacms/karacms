@@ -1,4 +1,4 @@
-<div class="px-5 py-3">
+<div class="p-6">
     <div class="relative w-full mt-3">
         <form enctype="multipart/form-data" method="post" action="{{url('dashboard/users/' . $user->id)}}">
             @method('PUT')

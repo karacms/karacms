@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li class="text-3xl text-white mt-4 p-0">
-                            <a href="{{url('/dashboard/users')}}">
+                            <a href="{{url('/dashboard/content')}}">
                                 <span class="uim-svg hover:bg-gray-500">{!! svg('line/file') !!}</span>
                             </a>
                         </li>
