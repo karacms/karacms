@@ -21,6 +21,7 @@ class CreateGroupsTable extends Migration
             $table->text('description')->nullable();
             $table->json('meta')->nullable();
             $table->json('permissions')->nullable();
+            $table->nestedSet();
             $table->unique(['slug', 'type']);
             $table->timestamps();
         });

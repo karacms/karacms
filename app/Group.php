@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Group extends Model
 {
+    use NodeTrait;
+    
     protected $fillable = ['name', 'slug', 'description', 'meta', 'permissions', 'type'];
 
     protected $casts = [

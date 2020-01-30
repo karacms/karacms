@@ -1,7 +1,8 @@
 <?php
 namespace App\Dashboard;
 
-class Menu {
+class Menu 
+{
     public static $items;
 
     public static function add($item)

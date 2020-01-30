@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Group;
+
 function svg($icon)
 {
     $path = public_path() . '/unicons/svg/' . $icon . '.svg';
