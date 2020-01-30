@@ -15,6 +15,16 @@ class CreateContentTable extends Migration
     {
         Schema::create('content', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('author_id')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug', 170)->nullable();
+            $table->longText('content')->nullable();
+            $table->json('meta')->nullable();
+            $table->string('status', 50)->nullable();
+            $table->integer('instance_id')->nullable();
+
+            $table->unique(['instance_id', 'slug']);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@
 */
 
 use App\Group;
+use App\Setting;
 
 function svg($icon)
 {
@@ -40,3 +41,7 @@ Route::group(['as' => 'dashboard', 'prefix' => 'dashboard'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('test', function () {
+    dd(Setting::get('foo'));
+});
