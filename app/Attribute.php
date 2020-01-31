@@ -59,7 +59,7 @@ class Attribute
         // @todo: Check if it safe
         $content = $this->content ?? request()->route('content');
         $dbValue = isset($content) ? $content->data($field['key']) : null;
-
+              
         $field['default'] = $dbValue ?? $field['default'];
 
         return $field;

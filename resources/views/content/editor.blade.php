@@ -12,7 +12,7 @@
 <h1 class="text-2xl">Create New {{$contentTypeData['name']}}</h1>
 @endif
 
-<form method="post" action="{{url('dashboard/content/' . $content->id ?? '' )}}">
+<form @submit="saveContent()" name="mainEditorForm" method="post" action="{{url('dashboard/content/' . $content->id ?? '' )}}">
     
     @if (isset($content['id']))
     @method('PUT')

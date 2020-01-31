@@ -4,8 +4,18 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
+import EditorJS from '@editorjs/editorjs';
+import Header from '@editorjs/header'; 
+import List from '@editorjs/list'; 
+
+import VueQuillEditor from 'vue-quill-editor';
 
 window.Vue = require('vue');
+
+Vue.use(VueQuillEditor, {
+    theme: 'snow'
+});
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -32,7 +42,30 @@ const app = new Vue({
         queue: [],
         
         // Content Type
-        fields: []
+        fields: [],
+
+        // Editors
+        richTexts: {},
+
+        // Block Editors
+        holders: {},
+        editors: {}
+    },
+    mounted: function () {
+        this.richTexts = window.richTexts;
+        this.holders = window.holders;
+
+        for (let holder in this.holders) {
+            this.editors[holder] = new EditorJS({
+                holderId: holder,
+                tools: {
+                    header: Header,
+                    list: List
+                },
+                data: this.holders[holder]
+            });
+        }
+
     },
     methods: {
         performSearch: _.debounce(function () {
@@ -53,7 +86,6 @@ const app = new Vue({
         },
 
         addField: function (type) {
-            
             const field = {
                 type,
                 key: '',
@@ -66,6 +98,18 @@ const app = new Vue({
             };
 
             this.fields.push(field);
+        },
+
+        saveContent: function () {
+            for (let editor in this.editors) {
+                this.editors[editor].save().then(content => {
+                    this.holders[editor] = content;
+                }).catch(error => {
+                    console.log(error);
+                });
+            }
+
+            document.mainEditorForm.submit();
         }
     }
 });

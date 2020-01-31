@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'KaraCMS') }}</title>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+
+
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -74,15 +77,24 @@
 
         <main class="p-6 flex-auto">
             <div class="flex flex-col h-full">
-                <div class="flex-grow">
+                <div class="flex-grow mb-20">
                     @include('components/message')
                     @yield('content')
                 </div>
-                <footer class="text-gray-500 text-sm mt-10">
+                <footer class="text-gray-500 text-sm">
                     Thanks for creating with <a class="text-indigo-500" href="https://karacms.org">KaraCMS</a>.
                 </footer>
             </div>
         </main>
     </div>
+
+    <script>
+        var richTexts = {};
+        var holders = {};
+    </script>
+
+    @stack('scripts')
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('afterScripts')
 </body>
 </html>

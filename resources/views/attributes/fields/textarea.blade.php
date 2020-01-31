@@ -1,6 +1,7 @@
 <div class="mb-3">
     {{$field['title'] ?? ''}}
     <textarea 
+            id="{{$field['id'] ?? $field['key']}}"
             name="{{$field['key']}}"
             placeholder="{{$field['placeholder'] ?? ''}}"
             rows="{{$field['rows'] ?? 3 }}"

@@ -70,13 +70,12 @@ class AppServiceProvider extends ServiceProvider
                     ],
 
                     [
-                        'type' => 'textarea',
+                        'type' => 'editorjs',
                         'key' => 'content',
                         'title' => 'Content',
                         'description' => '',
                         'default' => '',
                         'position' => 'main',
-                        'rows' => 15
                     ],
                 ]
             ]
