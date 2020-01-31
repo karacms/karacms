@@ -32,7 +32,8 @@
         @else
         @foreach ($contents as $content)
         <tr>
-            <td>{{$content->title}}</td>
+            <td><input type="checkbox" /></td>
+            <td><a href="{{url('dashboard/content/' . $content->id)}}">{{$content->title}}</a></td>
             <td>{{$content->creator->name}}</td>
             <td>{{$content->status}}</td>
             <td>{{$content->created_at}}</td>

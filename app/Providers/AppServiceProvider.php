@@ -63,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
                         'type' => 'text',
                         'key' => 'description',
                         'title' => 'Description',
+                        'placeholder' => 'Enter description',
                         'description' => '',
                         'default' => '',
                         'position' => 'main',

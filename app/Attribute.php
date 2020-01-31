@@ -56,6 +56,7 @@ class Attribute
 
     private function mergeWithDb($field)
     {
+        // @todo: Check if it safe
         $content = $this->content ?? request()->route('content');
         $dbValue = isset($content) ? $content->data($field['key']) : null;
 

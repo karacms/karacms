@@ -10,7 +10,10 @@ class Group extends Model
 {
     use NodeTrait;
     
-    protected $fillable = ['name', 'slug', 'description', 'meta', 'permissions', 'type'];
+    protected $fillable = [
+        'creator_id', 'name', 'slug', 
+        'description', 'meta', 'permissions', 'type'
+    ];
 
     protected $casts = [
         'meta' => 'json',

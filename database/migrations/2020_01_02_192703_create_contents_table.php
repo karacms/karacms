@@ -17,6 +17,7 @@ class CreateContentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('creator_id')->nullable();
             $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->string('slug', 150)->nullable();
             $table->longText('content')->nullable();
             $table->longText('featured_image')->nullable();

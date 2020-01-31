@@ -8,7 +8,7 @@ class Content extends Model
 {
     use HasMeta, HasCreator;
     
-    protected $fillable = ['creator_id', 'title', 'slug', 'content', 'meta', 'status', 'type', 'instance_id'];
+    protected $fillable = ['creator_id', 'title', 'description', 'slug', 'content', 'meta', 'status', 'type', 'instance_id'];
 
     protected $casts = [
         'meta' => 'json'

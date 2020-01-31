@@ -15,7 +15,7 @@ class ContentController extends Controller
     public function index(Request $request)
     {
         $contentType = $request->type ?? 'post';
-        $contents = Content::type($contentType)->paginate(20);
+        $contents = Content::with('creator')->type($contentType)->paginate(20);
         $contentTypeData = Content::getType($contentType);
 
         return frontend('content/index', compact('contents', 'contentTypeData'));
@@ -47,6 +47,8 @@ class ContentController extends Controller
     {
         $data = $request->all();
         $content = Content::create($data);
+
+        // @todo: Handle Meta fields
         
         return redirect('dashboard/content/' . $content->id)->withMessage('Content created!');
     }
@@ -83,9 +85,12 @@ class ContentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Content $content)
     {
-        //
+        $data = $request->all();
+        $content->update($data);
+
+        return back()->withMessage($content->type . ' updated!');
     }
 
     /**
