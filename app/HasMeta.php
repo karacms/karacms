@@ -13,7 +13,8 @@ trait HasMeta
      */
     public function setMeta($key, $value)
     {
-        $meta = $this->meta;
+        dd($key);
+        $meta = is_array($this->meta) ? $this->meta : [];
         $meta[$key] = $value;
         $this->meta = $meta;
 
@@ -69,7 +70,15 @@ trait HasMeta
     public function data($field, $value = null)
     {
         if (is_null($value)) {
-            return in_array($field, $this->getFillable()) ? $this->$field : $this->meta[$field];
+            if (in_array($field, $this->getFillable()) && isset($this->$field)) {
+                return $this->$field;
+            }
+            
+            if (isset($this->meta[$field])) {
+                return $this->meta[$field];
+            }
+
+            return $value;
         }
 
         if (in_array($field, $this->getFillable())) {

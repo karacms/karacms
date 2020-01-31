@@ -11,6 +11,7 @@
 |
 */
 
+use App\Attribute;
 use App\Content;
 use App\Group;
 use App\Setting;
@@ -46,7 +47,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    
-
-    Content::getAllTypes();
+    return Attribute::renderAll([
+        [
+            'type' => 'text',
+            'default' => 'Foo',
+            'title' => 'Hello',
+            'description' => 'Description'
+        ]
+    ]);
 });

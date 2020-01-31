@@ -1,7 +1,6 @@
 <div class="mb-3">
     {{$field['title'] ?? ''}}
-    <input type="text" 
-            name="{{$field['key']}}"
+    <input type="email" 
             placeholder="{{$field['placeholder'] ?? ''}}" 
             value="{{$field['default'] ?? ''}}" 
             class="{{$field['class'] ?? 'px-2 py-1 rounded-sm border border-gray-200 w-full'}}" 

@@ -2,10 +2,40 @@
 namespace App;
 
 use Illuminate\Support\Facades\Blade;
+use App\Content;
 
 class Attribute
 {
-    public static function renderAll($fields)
+    use EasyCall;
+
+    public ?int $contentId = null;
+    public ?Content $content = null;
+
+    private function forContent(int $id)
+    {
+        $this->contentId = $id;
+        $content = Content::findOrFail($id);
+        $this->content = $content;
+    }
+
+    public static function forCurrentContent()
+    {
+        $contentId = request()->get('id');
+
+        return self::forContent($contentId);
+    }
+
+    public static function forUser($id)
+    {
+
+    }
+
+    public static function forCurrentUser()
+    {
+
+    }
+
+    private function renderAll($fields)
     {
         $template = '';
 
@@ -16,10 +46,21 @@ class Attribute
         return $template;
     }
 
-    public static function render($field)
+    private function render($field)
     {
+        $field = $this->mergeWithDb($field);
         $fieldType = $field['type'] ?? 'text';
-     
+        
         return view('attributes/fields/' . $fieldType, compact('field'));
+    }
+
+    private function mergeWithDb($field)
+    {
+        $content = $this->content ?? request()->route('content');
+        $dbValue = $content->data($field['key']) ?? null;
+
+        $field['default'] = $dbValue ?? $field['default'];
+
+        return $field;
     }
 }

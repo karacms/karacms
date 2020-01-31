@@ -34,7 +34,7 @@ class ContentController extends Controller
             'type' => $contentType
         ]);
 
-        return frontend('content/create', compact('content', 'contentTypeData'));
+        return frontend('content/editor', compact('content', 'contentTypeData'));
     }
 
     /**
@@ -45,29 +45,35 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $content = Content::create($data);
+        
+        return redirect('dashboard/content/' . $content->id)->withMessage('Content created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Content $content
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Content $content)
     {
-        //
+        return $this->edit($content);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Content $content
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($content)
     {
-        //
+        $contentType = $content->type;
+        $contentTypeData = Content::getType($contentType);
+        
+        return view('content/editor', compact('content', 'contentTypeData'));
     }
 
     /**

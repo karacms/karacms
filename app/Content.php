@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
+    use HasMeta;
+    
     protected $fillable = ['author_id', 'title', 'slug', 'content', 'meta', 'status', 'type', 'instance_id'];
 
+    protected $casts = [
+        'meta' => 'json'
+    ];
+    
     public static $types = [];
 
     public function types()

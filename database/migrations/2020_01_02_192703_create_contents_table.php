@@ -19,6 +19,7 @@ class CreateContentsTable extends Migration
             $table->string('title')->nullable();
             $table->string('slug', 150)->nullable();
             $table->longText('content')->nullable();
+            $table->longText('featured_image')->nullable();
             $table->json('meta')->nullable();
             $table->string('status', 50)->nullable();
             $table->string('type', 30)->nullable();
