@@ -5,9 +5,22 @@
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.snow.css';
 
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
 .ql-container, .ql-editor {
     height: 200px;
 }
+
+.ce-toolbar__content, .ce-block__content {
+    max-width: 100%;
+}
+
 
 :root {
     --uim-primary-opacity: 1;

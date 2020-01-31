@@ -62,7 +62,7 @@ const app = new Vue({
                     header: Header,
                     list: List
                 },
-                data: this.holders[holder]
+                data: this.holders[holder],
             });
         }
 

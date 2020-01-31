@@ -1,7 +1,10 @@
 <div class="mb-3">
     <label>{{$field['title']}}</label>
-    <div id="{{$field['key']}}"></div>
-    <input type="hidden" name="{{$field['key']}}" :value="JSON.stringify(holders.{{$field['key']}})" />
+
+    <div class="rounded p-2 shadow">
+        <div id="{{$field['key']}}"></div>
+        <input type="hidden" name="{{$field['key']}}" :value="JSON.stringify(holders.{{$field['key']}})" />
+    </div>
 </div>
 
 @push('scripts')
