@@ -72,7 +72,6 @@ class AppServiceProvider extends ServiceProvider
                     [
                         'type' => 'editorjs',
                         'key' => 'content',
-                        'title' => 'Content',
                         'description' => '',
                         'default' => '',
                         'position' => 'main',

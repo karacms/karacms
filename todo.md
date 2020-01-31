@@ -19,6 +19,7 @@
 
 # Content Types
     - Post
+    - Style for editorjs
 
 # Custom Fields
 

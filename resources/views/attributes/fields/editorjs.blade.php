@@ -1,7 +1,7 @@
 <div class="mb-3">
-    <label>{{$field['title']}}</label>
+    <label>{{$field['title'] ?? ''}}</label>
 
-    <div class="rounded p-2 shadow">
+    <div class="rounded p-8 shadow">
         <div id="{{$field['key']}}"></div>
         <input type="hidden" name="{{$field['key']}}" :value="JSON.stringify(holders.{{$field['key']}})" />
     </div>

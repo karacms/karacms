@@ -16869,6 +16869,11 @@ h2 {
   height: 200px;
 }
 
+.ce-header {
+  margin-bottom: 0;
+  padding: 0;
+}
+
 .ce-toolbar__content, .ce-block__content {
   max-width: 100%;
 }
