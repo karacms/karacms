@@ -32,6 +32,9 @@ class AppServiceProvider extends ServiceProvider
                 'main' => ['title', 'content'],
                 'sidebar' => ['redirect', 'category']
             ],
+            'tabs' => [
+                'First' => []
+            ],
             'fields' => [
                 'sidebar' => [
                     [
@@ -46,9 +49,66 @@ class AppServiceProvider extends ServiceProvider
                         'key' => 'category',
                         'title' => 'Categories',
                         'description' => 'Select categories',
-                    ]
+                    ],
                 ],
                 'main' => [
+                    [
+                        'type' => 'tabs',
+                        'panes' => [
+                            [
+                                'title' => 'First Pane',
+                                'fields' => [
+                                    [
+                                        'type' => 'text',
+                                        'key' => 'seo_title',
+                                        'title' => 'SEO Title',
+                                        'placeholder' => 'Enter SEO title...',
+                                        'description' => '',
+                                        'default' => '',
+                                    ],
+                                ]
+                            ],
+
+                            [
+                                'title' => 'Second Pane',
+                                'fields' => [
+                                    [
+                                        'type' => 'text',
+                                        'key' => 'seo_title',
+                                        'title' => 'SEO Title',
+                                        'placeholder' => 'Enter SEO title...',
+                                        'description' => '',
+                                        'default' => '',
+                                    ],
+                                ]
+                            ]
+                        ],
+                    ],
+                    [
+                        'type' => 'card',
+                        'title' => 'Card Title',
+                        'fields' => 'Fields',
+                        'key' => 'card',
+                        'fields' => [
+                            [
+                                    'type' => 'text',
+                                    'key' => 'seo_title',
+                                    'title' => 'SEO Title',
+                                    'placeholder' => 'Enter SEO title...',
+                                    'description' => '',
+                                    'default' => '',
+                            ],
+
+                            [
+                                'type' => 'textarea',
+                                'key' => 'seo_description',
+                                'title' => 'SEO description',
+                                'placeholder' => 'Enter SEO description...',
+                                'description' => '',
+                                'default' => '',
+                            ]
+                        ]
+                    ],
                     [
                         'type' => 'text',
                         'key' => 'title',
@@ -73,6 +133,15 @@ class AppServiceProvider extends ServiceProvider
                         'type' => 'editorjs',
                         'key' => 'content',
                         'description' => '',
+                        'default' => '',
+                        'position' => 'main',
+                    ],
+
+                    [
+                        'type' => 'quill',
+                        'key' => 'excerpt',
+                        'description' => 'Excerpt',
+                        'placeholder' => 'Enter excerpt',
                         'default' => '',
                         'position' => 'main',
                     ],

@@ -48,7 +48,10 @@ class Attribute
 
     private function render($field)
     {
-        $field = $this->mergeWithDb($field);
+        if (isset($field['key']) && isset($field['default'])) {
+            $field = $this->mergeWithDb($field);
+        }
+
         $fieldType = $field['type'] ?? 'text';
         
         return view('attributes/fields/' . $fieldType, compact('field'));
