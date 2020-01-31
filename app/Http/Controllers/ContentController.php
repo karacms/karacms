@@ -34,7 +34,6 @@ class ContentController extends Controller
             'type' => $contentType
         ]);
 
-
         return frontend('content/create', compact('content', 'contentTypeData'));
     }
 

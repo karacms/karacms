@@ -28,22 +28,54 @@ class AppServiceProvider extends ServiceProvider
             'slug' => 'post',
             'name' => 'Post',
             'description' => 'Built in Post',
+            'positions' => [
+                'main' => ['title', 'content'],
+                'sidebar' => ['redirect', 'category']
+            ],
             'fields' => [
-                [
-                    'type' => 'text',
-                    'key' => 'title',
-                    'title' => 'Title',
-                    'description' => '',
-                    'default' => '',
-                    'position' => 'main',
+                'sidebar' => [
+                    [
+                        'type' => 'url',
+                        'key' => 'redirect',
+                        'title' => 'Redirection',
+                        'description' => '',
+                        'default' => '',
+                    ],
+                    [
+                        'type' => 'group',
+                        'key' => 'category',
+                        'title' => 'Categories',
+                        'description' => 'Select categories',
+                    ]
                 ],
-                [
-                    'type' => 'url',
-                    'key' => 'redirect',
-                    'title' => 'Redirection',
-                    'description' => '',
-                    'default' => '',
-                    'position' => 'sidebar'
+                'main' => [
+                    [
+                        'type' => 'text',
+                        'key' => 'title',
+                        'title' => 'Title',
+                        'description' => '',
+                        'default' => '',
+                        'position' => 'main',
+                    ],
+
+                    [
+                        'type' => 'text',
+                        'key' => 'description',
+                        'title' => 'Description',
+                        'description' => '',
+                        'default' => '',
+                        'position' => 'main',
+                    ],
+
+                    [
+                        'type' => 'textarea',
+                        'key' => 'content',
+                        'title' => 'Content',
+                        'description' => '',
+                        'default' => '',
+                        'position' => 'main',
+                        'rows' => 15
+                    ],
                 ]
             ]
         ]);

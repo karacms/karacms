@@ -8,6 +8,7 @@
     - User Attributes
     - User Permissions
     - User with lower role cannot create user with higher role
+    - Store all uploaded files path in users media table
 
 # Media
     - Use Uppy to upload media
@@ -37,3 +38,6 @@
 
 # Installation Script
     - Create symlink for storage
+
+# Bugs
+    - Datetime-local Safari, Firefox

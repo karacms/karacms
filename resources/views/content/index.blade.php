@@ -23,7 +23,7 @@
     <tbody>
         @if ($contents->count() === 0)
         <tr>
-            <td colspan="5" class="border-t border">
+            <td colspan="6" class="border-t border">
                 <div class="text-center text-gray-500">
                     No post
                 </div>
