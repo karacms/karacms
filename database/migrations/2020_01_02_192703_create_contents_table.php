@@ -15,7 +15,7 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('author_id')->nullable();
+            $table->integer('creator_id')->nullable();
             $table->string('title')->nullable();
             $table->string('slug', 150)->nullable();
             $table->longText('content')->nullable();

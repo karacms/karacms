@@ -29,6 +29,16 @@
                 </div>
             </td>
         </tr>
+        @else
+        @foreach ($contents as $content)
+        <tr>
+            <td>{{$content->title}}</td>
+            <td>{{$content->creator->name}}</td>
+            <td>{{$content->status}}</td>
+            <td>{{$content->created_at}}</td>
+            <td>{{$content->updated_at}}</td>
+        </tr>
+        @endforeach
         @endif
     </tbody>
 </table>

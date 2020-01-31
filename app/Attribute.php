@@ -57,7 +57,7 @@ class Attribute
     private function mergeWithDb($field)
     {
         $content = $this->content ?? request()->route('content');
-        $dbValue = $content->data($field['key']) ?? null;
+        $dbValue = isset($content) ? $content->data($field['key']) : null;
 
         $field['default'] = $dbValue ?? $field['default'];
 
