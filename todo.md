@@ -22,6 +22,17 @@
     - Style for editorjs
 
 # Custom Fields
+    - Next Phrase: Allow users create their own field
+    - Make Publishing field
+    - Make Container field
+    - Make Column Field
+    - Make Row Field
+    - Repeater Field
+
+```php
+
+```
+    - Next phrase: Conditional Logic
 
 # Authentication views
     - Styling

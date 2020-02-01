@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
+    <link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -25,39 +26,39 @@
                     <ul>
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/dashboard') !!}</span>
+                                {!! svg('line/dashboard', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/content')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/file') !!}</span>
+                                {!! svg('line/file', 'hover:bg-gray-500') !!}
+                            </a>
+                        </li>
+
+                        <li class="text-3xl text-white mt-4 p-0">
+                            <a href="{{url('/dashboard/media')}}">
+                                {!! svg('line/scenery', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
 
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/scenery') !!}</span>
-                            </a>
-                        </li>
-
-                        <li class="text-3xl text-white mt-4 p-0">
-                            <a href="{{url('/dashboard/users')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/apps') !!}</span>
+                                {!! svg('line/apps', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/users')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/users-alt') !!}</span>
+                                {!! svg('line/users-alt', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/attributes')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/plus-square') !!}</span>
+                                {!! svg('line/plus-square', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
                         <li class="text-3xl text-white mt-4 p-0">
                             <a href="{{url('/dashboard/attributes')}}">
-                                <span class="uim-svg hover:bg-gray-500">{!! svg('line/sliders-v') !!}</span>
+                                {!! svg('line/sliders-v', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
                     </ul>

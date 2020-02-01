@@ -32,9 +32,6 @@ class AppServiceProvider extends ServiceProvider
                 'main' => ['title', 'content'],
                 'sidebar' => ['redirect', 'category']
             ],
-            'tabs' => [
-                'First' => []
-            ],
             'fields' => [
                 'sidebar' => [
                     [

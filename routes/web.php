@@ -14,12 +14,15 @@
 use App\Attribute;
 use App\Content;
 use App\Group;
+use App\Media;
 use App\Setting;
 
-function svg($icon)
+function svg($icon, $classes = '')
 {
     $path = public_path() . '/unicons/svg/' . $icon . '.svg';
-    return file_exists($path) ? file_get_contents($path) : '';
+    $svgContent = file_exists($path) ? file_get_contents($path) : '';
+
+    return '<span class="uim-svg '. $classes .'">' . $svgContent . '</span>';
 }
 
 /**
@@ -38,7 +41,8 @@ Route::group(['as' => 'dashboard', 'prefix' => 'dashboard'], function () {
         'users' => 'UserController',
         'roles' => 'RoleController',
         'content' => 'ContentController',
-        'attributes' => 'AttributeController'
+        'attributes' => 'AttributeController',
+        'media' => 'MediaController'
     ]);
 });
 
@@ -47,12 +51,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    return Attribute::renderAll([
-        [
-            'type' => 'text',
-            'default' => 'Foo',
-            'title' => 'Hello',
-            'description' => 'Description'
-        ]
-    ]);
+
 });

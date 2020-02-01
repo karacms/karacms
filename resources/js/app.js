@@ -4,18 +4,28 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
+
+// EditorJS
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header'; 
 import List from '@editorjs/list'; 
 
+// QuillJS
 import VueQuillEditor from 'vue-quill-editor';
+
+// Uppy
+const Uppy = require('@uppy/core')
+const Dashboard = require('@uppy/dashboard')
+const DragDrop = require('@uppy/drag-drop')
+const FileInput = require('@uppy/file-input')
+const ProgressBar = require('@uppy/progress-bar')
+const xhr = require('@uppy/xhr-upload')
 
 window.Vue = require('vue');
 
 Vue.use(VueQuillEditor, {
     theme: 'snow'
 });
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -66,6 +76,15 @@ const app = new Vue({
             });
         }
 
+        const uppy = Uppy()
+            .use(Dashboard, {
+                inline: true,
+                target: '#drag-drop-area'
+            });
+
+            uppy.on('complete', (result) => {
+                console.log('Upload complete! We’ve uploaded these files:', result.successful)
+            })
     },
     methods: {
         performSearch: _.debounce(function () {
