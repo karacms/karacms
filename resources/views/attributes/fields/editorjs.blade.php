@@ -9,6 +9,6 @@
 
 @push('scripts')
 <script>
-    holders.{{$field['key']}} = {!!$field['default']!!};
+    holders.{{$field['key']}} = {!! $field['default'] !!};
 </script>
 @endpush

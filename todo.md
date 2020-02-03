@@ -11,7 +11,7 @@
     - Store all uploaded files path in users media table
 
 # Media
-    - Use Uppy to upload media
+    - Handle Uppy upload
 
 # Settings
     - Allow register
@@ -28,6 +28,8 @@
     - Make Column Field
     - Make Row Field
     - Repeater Field
+    - File
+    - Uppy
 
 ```php
 

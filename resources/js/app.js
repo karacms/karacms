@@ -76,15 +76,18 @@ const app = new Vue({
             });
         }
 
-        const uppy = Uppy()
-            .use(Dashboard, {
-                inline: true,
-                target: '#drag-drop-area'
-            });
+        const uppyEnabled = document.getElementsByClassName('uppy').length;
+        if (uppyEnabled) {
+            const uppy = Uppy()
+                .use(Dashboard, {
+                    inline: true,
+                    target: '.uppy'
+                });
 
-            uppy.on('complete', (result) => {
-                console.log('Upload complete! We’ve uploaded these files:', result.successful)
-            })
+                uppy.on('complete', (result) => {
+                    console.log('Upload complete! We’ve uploaded these files:', result.successful)
+                });
+        }
     },
     methods: {
         performSearch: _.debounce(function () {

@@ -65,6 +65,12 @@ class Attribute
               
         $field['default'] = $dbValue ?? $field['default'];
 
+        if ($field['type'] === 'editorjs') {
+            if (empty($field['default']) || is_null($field['default'])) {
+                $field['default'] = json_encode([]);
+            }
+        }
+
         return $field;
     }
 }

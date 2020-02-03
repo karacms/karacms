@@ -77000,13 +77000,17 @@ var app = new Vue({
       });
     }
 
-    var uppy = Uppy().use(Dashboard, {
-      inline: true,
-      target: '#drag-drop-area'
-    });
-    uppy.on('complete', function (result) {
-      console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    });
+    var uppyEnabled = document.getElementsByClassName('uppy').length;
+
+    if (uppyEnabled) {
+      var uppy = Uppy().use(Dashboard, {
+        inline: true,
+        target: '.uppy'
+      });
+      uppy.on('complete', function (result) {
+        console.log('Upload complete! We’ve uploaded these files:', result.successful);
+      });
+    }
   },
   methods: {
     performSearch: _.debounce(function () {
