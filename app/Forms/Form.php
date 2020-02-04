@@ -18,7 +18,6 @@ class Form
 
     public function getFieldData($key, $default = null)
     {
-
         if (isset($this->data->$key)) {
             return $this->data->$key;
         }
@@ -52,12 +51,14 @@ class Form
         ]);
     }
 
+    /**
+     * Patch the form before saving the data, this is good for sanitizer
+     */
     public function patch($data)
     {
-        foreach ($data as $key => $value)
-        {
-            $field = $this->searchField($this->fields, $key);
-            
+        foreach ($data as $key => $value) {
+            $field = $this->searchField($this->getFields(), $key);
+
             if ($field === false) { continue; }
             
             $fieldType = $field['type'] ?? 'text';
@@ -92,6 +93,21 @@ class Form
         return false;
     }
 
+    public function replaceField($fields, $key, $newData)
+    {
+        foreach ($fields as $index => $field) {
+            if (isset($field['key']) && $field['key'] === $key) {
+                $fields[$index] = $newData;
+            }
+
+            if (isset($field['fields'])) {
+                $fields[$index]['fields'] = $this->replaceField($field['fields'], $key, $newData);
+            }
+        }
+
+        return $fields;
+    }
+
     public function getProp($name)
     {
         if (method_exists($this, 'get' . strtoupper($name))) {
@@ -100,11 +116,6 @@ class Form
 
         if (isset($this->props[$name])) {
             $value = $this->props[$name];
-
-            if (isset($this->$name)) {
-                $value = str_replace(':inherit', $this->$name, $value);
-            }
-
             return $value;
         }
 
@@ -115,6 +126,21 @@ class Form
         return null;
     }
 
+    public function getFields()
+    {
+        if (isset($this->props['fields'])) {
+            $fields = $this->props['fields'];
+        }
+
+        if (isset($this->fields)) {
+            $fields = $this->fields;
+        }
+
+        $publishingFields = Publishing::getFields();
+        $fields = $this->replaceField($fields, 'publishing', $publishingFields);
+
+        return $fields;
+    }
     
     public function __get($prop)
     {
@@ -129,10 +155,10 @@ class Form
 
     public function renderFields($fields = null)
     {
-        $fields = $fields ?? $this->fields;
-
+        $fields = !is_null($fields) ? $fields : $this->getFields();
+        
         $output = '';
-       
+        
         foreach ($fields as $field) {
             $output .= $this->renderField($field);
         }
@@ -147,7 +173,7 @@ class Form
 
         $className = "App\\Forms\\Fields\\$className";
         $class = new $className($field, $this);
-
+        
         return $class->render();
     }
 }

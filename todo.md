@@ -55,3 +55,6 @@
 
 # Bugs
     - Datetime-local Safari, Firefox
+
+- Remove submit-prevent saveContent()
+- Implement nested field (Publish)

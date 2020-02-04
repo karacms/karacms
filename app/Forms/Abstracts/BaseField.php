@@ -2,6 +2,7 @@
 
 namespace App\Forms\Abstracts;
 
+use App\EasyCall;
 use App\Forms\Form;
 use Illuminate\Support\Str;
 
@@ -71,6 +72,10 @@ abstract class BaseField
 
         $viewName = $this->getProp('type');
 
+        // if (empty($viewName)) {
+        //     dd($this->props);
+        // }
+
         return 'attributes/fields/' . $viewName;
     }
 
@@ -87,7 +92,7 @@ abstract class BaseField
     public function renderFields($fields = null)
     {
         $fields = $fields ?? $this->getProp('fields');
-
+        
         return $this->form->renderFields($fields);
     }
 

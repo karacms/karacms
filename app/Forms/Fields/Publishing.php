@@ -1,14 +1,17 @@
 <?php
 namespace App\Forms\Fields;
 
+use App\EasyCall;
 use App\Forms\Abstracts\BaseField;
 use Carbon\Carbon;
 
 class Publishing extends BaseField
 {
-    public function __construct($props, $form)
+    use EasyCall;
+
+    private function getFields()
     {
-        $props['fields'] = [
+        return [
             'type' => 'card',
             'id' => 'publishing',
             'title' => 'Publishing',
@@ -46,12 +49,10 @@ class Publishing extends BaseField
                 ]
             ]
         ];
-
-        parent::__construct($props, $form);   
     }
 
     public function render()
     {
-        return $this->form->renderField($this->getProp('fields'));
+        return $this->form->renderField($this->getFields());
     }
 }
