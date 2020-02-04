@@ -23,9 +23,11 @@
     <input type="hidden" name="type" value="{{$contentTypeData['slug']}}" />
     <input type="hidden" name="creator_id" value="{{Auth::user()->id}}" />
 
+    {!! App\Forms\Form::render(['fields' => $contentTypeData['fields'], 'data' => $content]) !!}
+
     <div class="flex mt-6">
         <div class="flex-auto mr-6">
-            {!! App\Attribute::renderAll($contentTypeData['fields']['main']) !!}
+            
         </div>
 
         <aside style="max-width: 350px">
@@ -60,13 +62,6 @@
                     <button type="submit" class="bg-indigo-400 p-2 text-white rounded-sm">Save Changes</button>
                 </fieldset>
             </section>
-            
-            @foreach ($contentTypeData['fields']['sidebar'] as $field)
-                <fieldset class="p-5 bg-gray-200 mt-5">
-                    <label>{{$field['title']}}</label>
-                    <input type="text" class="border border-gray-200 px-2 py-1 rounded-sm w-full" />
-                </fieldset>
-            @endforeach
         </aside>
     </div>
 </form>

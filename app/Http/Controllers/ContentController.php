@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Content;
+use App\Forms\Form;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller

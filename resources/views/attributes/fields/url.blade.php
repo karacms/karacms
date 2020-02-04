@@ -1,10 +1,11 @@
 <div class="mb-3">
-    {{$field['title'] ?? ''}}
+    {{$field->title ?? ''}}
     <input type="url" 
-            name="{{$field['key']}}"
-            placeholder="{{$field['placeholder'] ?? ''}}" 
-            value="{{$field['default'] ?? ''}}" 
-            class="{{$field['class'] ?? 'px-2 py-1 rounded-sm border border-gray-200 w-full'}}" 
+            id="{{$field->id}}"
+            name="{{$field->key}}"
+            placeholder="{{$field->placeholder}}" 
+            value="{{$field->default}}" 
+            class="{{$field->class}}" 
     />
-    <small class="text-small">{{$field['description'] ?? ''}}</small>
+    <small class="text-small">{{$field->description}}</small>
 </div>
