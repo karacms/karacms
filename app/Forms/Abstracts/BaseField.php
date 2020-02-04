@@ -29,7 +29,6 @@ abstract class BaseField
 
     public function getProps()
     {
-        
         return $this->props;
     }
 
@@ -39,7 +38,21 @@ abstract class BaseField
             return call_user_func([$this, 'get' . strtoupper($name)]);
         }
 
-        return $this->props[$name] ?? null;
+        if (isset($this->props[$name])) {
+            $value = $this->props[$name];
+
+            if (isset($this->$name)) {
+                $value = str_replace(':inherit', $this->$name, $value);
+            }
+
+            return $value;
+        }
+
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+
+        return null;
     }
 
     protected function getDefaultValue()
@@ -79,11 +92,6 @@ abstract class BaseField
 
     public function render()
     {
-        $computedData = $this->getComputedData();
-        
-        $field = $this->getProps();
-        $field['default'] = $computedData ?? $field['default'] ?? null;
-
         return view($this->getViewPath(), [
             'field' => $this
         ]);
