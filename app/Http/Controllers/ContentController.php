@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
+    public $form;
+
+    public function __construct()
+    {
+        $this->form = new Form([
+            'id' => 'editor',
+            'method' => 'post',
+            'action' => url('dashboard/content'),
+            'name' => 'mainEditorForm',
+            'attributes' => '@submit.prevent="saveContent()"'
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,8 +47,12 @@ class ContentController extends Controller
         $content = new Content([
             'type' => $contentType
         ]);
+        
+        $form = $this->form;
+        $form->fields = $contentTypeData['fields'];
+        $form->data = $content;
 
-        return frontend('content/editor', compact('content', 'contentTypeData'));
+        return frontend('content/editor', compact('content', 'contentTypeData', 'form'));
     }
 
     /**
@@ -76,7 +93,12 @@ class ContentController extends Controller
         $contentType = $content->type;
         $contentTypeData = Content::getType($contentType);
         
-        return view('content/editor', compact('content', 'contentTypeData'));
+        $form = $this->form;
+        $form->fields = $contentTypeData['fields'];
+        $form->data = $content;
+        $form->action = url('dashboard/content/' . $content->id);
+
+        return view('content/editor', compact('content', 'contentTypeData', 'form'));
     }
 
     /**
@@ -89,7 +111,13 @@ class ContentController extends Controller
     public function update(Request $request, Content $content)
     {
         $data = $request->all();
-        $content->update($data);
+
+        $contentType = $content->type;
+        $contentTypeData = Content::getType($contentType);
+
+        $this->form->fields = $contentTypeData['fields'];
+        $data = $this->form->patch($data);
+        $content->updateWithMeta($data);
 
         return back()->withMessage($content->type . ' updated!');
     }

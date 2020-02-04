@@ -6,9 +6,9 @@ use Carbon\Carbon;
 
 class Publishing extends BaseField
 {
-    public function render()
+    public function __construct($props, $form)
     {
-        $fields = [
+        $props['fields'] = [
             'type' => 'card',
             'id' => 'publishing',
             'title' => 'Publishing',
@@ -47,6 +47,11 @@ class Publishing extends BaseField
             ]
         ];
 
-        return $this->form->renderField($fields);
+        parent::__construct($props, $form);   
+    }
+
+    public function render()
+    {
+        return $this->form->renderField($this->getProp('fields'));
     }
 }

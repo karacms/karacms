@@ -17,6 +17,15 @@ class CreateGroupablesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('group_id');
             $table->morphs('groupable');
+
+
+            // Self Relation, for example: Related Posts, Related Users...
+            $table->string('from_type')->nullable();
+            $table->integer('from_id')->nullable();
+            $table->string('to_type')->nullable();
+            $table->integer('to_id')->nullable();
+            $table->string('direction')->nullable(); // one-way, bidirection
+
             $table->timestamps();
         });
     }

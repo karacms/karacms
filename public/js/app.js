@@ -77044,21 +77044,14 @@ var app = new Vue({
       this.fields.push(field);
     },
     saveContent: function saveContent() {
-      var _this2 = this;
-
-      var _loop = function _loop(editor) {
-        _this2.editors[editor].save().then(function (content) {
-          _this2.holders[editor] = content;
+      for (var editor in this.editors) {
+        this.editors[editor].save().then(function (content) {
+          document.mainEditorForm.content.value = JSON.stringify(content);
+          document.mainEditorForm.submit();
         })["catch"](function (error) {
           console.log(error);
         });
-      };
-
-      for (var editor in this.editors) {
-        _loop(editor);
       }
-
-      document.mainEditorForm.submit();
     }
   }
 });

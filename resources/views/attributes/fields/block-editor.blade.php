@@ -3,7 +3,7 @@
 
     <div class="rounded p-8 shadow">
         <div id="{{$field->key}}"></div>
-        <input type="hidden" name="{{$field->key}}" :value="JSON.stringify(holders.{{$field->key}})" />
+        <input type="hidden" name="{{$field->key}}" />
     </div>
 </div>
 

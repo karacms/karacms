@@ -55,16 +55,12 @@ abstract class BaseField
         return null;
     }
 
-    protected function getDefaultValue()
-    {
-        return $this->getProp('default');
-    }
-
-    public function getComputedData()
+    public function getDefault()
     {
         $key = $this->getProp('key');
+        $default = $this->props['default'] ?? null;
 
-        return $this->form->getFieldData($key, $this->getDefaultValue());
+        return $this->form->getFieldData($key, $default);
     }
 
     public function getViewPath()
@@ -81,6 +77,11 @@ abstract class BaseField
     public function __get($prop)
     {
         return $this->getProp($prop);
+    }
+
+    public function __set($prop, $value)
+    {
+        $this->$prop = $value;
     }
 
     public function renderFields($fields = null)

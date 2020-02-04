@@ -125,13 +125,13 @@ const app = new Vue({
         saveContent: function () {
             for (let editor in this.editors) {
                 this.editors[editor].save().then(content => {
-                    this.holders[editor] = content;
+                    document.mainEditorForm.content.value = JSON.stringify(content);
+
+                    document.mainEditorForm.submit();
                 }).catch(error => {
                     console.log(error);
                 });
             }
-
-            document.mainEditorForm.submit();
         }
     }
 });

@@ -8,7 +8,9 @@ class Content extends Model
 {
     use HasMeta, HasCreator;
     
-    protected $fillable = ['creator_id', 'title', 'description', 'slug', 'content', 'meta', 'status', 'type', 'instance_id'];
+    protected $fillable = ['creator_id', 'title', 'description', 'slug', 'content', 'meta', 'status', 'type', 'instance_id', 'created_at', 'updated_at'];
+
+    protected $guaded = ['_token', '_method'];
 
     protected $casts = [
         'meta' => 'json'
@@ -47,4 +49,5 @@ class Content extends Model
 
         return $allTypes[$slug];
     }
+
 }
