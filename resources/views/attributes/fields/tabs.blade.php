@@ -6,8 +6,6 @@
     </ul>
 
     <div class="mt-3">
-        @foreach ($field->fields as $pane)
-            {!! $field->renderFields($pane['fields']) !!}
-        @endforeach
+        {!! $field->renderFields() !!}
     </div>
 </div>

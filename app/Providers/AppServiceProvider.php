@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
                         [
                             'type' => 'column',
                             'id' => 'main-section',
+                            'class' => 'mr-3',
                             'fields' => [
                                 [
                                     'type' => 'tabs',
@@ -137,6 +138,10 @@ class AppServiceProvider extends ServiceProvider
                             'type' => 'column',
                             'id' => 'sidebar',
                             'fields' => [
+                                [
+                                    'type' => 'publishing',
+                                    'id' => 'publishing'
+                                ],
                                 [
                                     'type' => 'url',
                                     'key' => 'redirect',
