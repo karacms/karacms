@@ -3,6 +3,7 @@
 namespace App\Forms\Abstracts;
 
 use App\Forms\Form;
+use Illuminate\Support\Str;
 
 abstract class BaseField
 {
@@ -28,11 +29,16 @@ abstract class BaseField
 
     public function getProps()
     {
+        
         return $this->props;
     }
 
     public function getProp($name)
     {
+        if (method_exists($this, 'get' . strtoupper($name))) {
+            return call_user_func([$this, 'get' . strtoupper($name)]);
+        }
+
         return $this->props[$name] ?? null;
     }
 
@@ -68,7 +74,7 @@ abstract class BaseField
     {
         $fields = $fields ?? $this->getProp('fields');
 
-        return $this->form->renderFields($this->getProp('fields'));
+        return $this->form->renderFields($fields);
     }
 
     public function render()

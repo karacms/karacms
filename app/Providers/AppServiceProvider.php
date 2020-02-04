@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             'fields' => [
                 [
                     'type' => 'row',
+                    'class' => 'mt-3',
                     'fields' => [
                         [
                             'type' => 'column',
@@ -39,16 +40,18 @@ class AppServiceProvider extends ServiceProvider
                             'fields' => [
                                 [
                                     'type' => 'tabs',
+                                    'position' => 'top',
                                     'fields' => [
                                         [
                                             'type' => 'pane',
-                                            'title' => 'First Pane',
+                                            'id' => 'basics',
+                                            'title' => 'Basics',
                                             'fields' => [
                                                 [
-                                                    'type' => 'text',
-                                                    'key' => 'seo_title',
-                                                    'title' => 'SEO Title',
-                                                    'placeholder' => 'Enter SEO title...',
+                                                    'type' => 'tel',
+                                                    'key' => 'basics',
+                                                    'title' => 'Phone number',
+                                                    'placeholder' => '',
                                                     'description' => '',
                                                     'default' => '',
                                                 ],
@@ -56,13 +59,13 @@ class AppServiceProvider extends ServiceProvider
                                         ],
                                         [
                                             'type' => 'pane',
-                                            'title' => 'Second Pane',
+                                            'title' => 'Advanced',
                                             'fields' => [
                                                 [
-                                                    'type' => 'text',
-                                                    'key' => 'seo_title',
-                                                    'title' => 'SEO Title',
-                                                    'placeholder' => 'Enter SEO title...',
+                                                    'type' => 'textarea',
+                                                    'key' => 'address',
+                                                    'title' => 'Address',
+                                                    'placeholder' => 'Australia',
                                                     'description' => '',
                                                     'default' => '',
                                                 ],

@@ -5,10 +5,8 @@ use App\Forms\Abstracts\BaseField;
 
 class BlockEditor extends BaseField
 {
-    public function __construct($props, $form)
+    public function getDefault()
     {
-        $this->default = json_encode([]);
-        
-        parent::__construct($props, $form);
+        return json_encode([]);
     }
 }
