@@ -26,6 +26,16 @@ class Form
                     'type' => 'row',
                     'fields' => [
                         [
+                            'type' => 'hidden',
+                            'key' => 'creator_id',
+                            'default' => 1
+                        ],
+                        [
+                            'type' => 'hidden',
+                            'key' => 'type',
+                            'default' => 'page',
+                        ],
+                        [
                             'type' => 'column',
                             'class' => 'flex-1',
                             'fields' => [
@@ -36,19 +46,26 @@ class Form
                                     'class' => ':inherit mr-3',
                                     'placeholder' => 'Please enter title...'
                                 ],
+                                [
+                                    'type' => 'block-editor',
+                                    'key' => 'content',
+                                    'title' => 'Content',
+                                    'class' => ':inherit mr-3',
+                                    'placeholder' => 'Please enter content'
+                                ],
                             ]
-                            ],
-                            [
-                                'type' => 'column',
-                                'class' => 'ml-3',
-                                'fields' => [
-                                    [
-                                        'type' => 'submit',
-                                        'class' => ':inherit',
-                                        'title' => 'Save Changes'
-                                    ]
+                        ],
+                        [
+                            'type' => 'column',
+                            'class' => 'ml-3 w-3/12',
+                            'fields' => [
+                                [
+                                    'type' => 'publishing',
+                                    'key' => 'publishing',
+                                    'title' => 'Publishing'
                                 ]
                             ]
+                        ]
                     ] 
                 ]
 

@@ -9,6 +9,10 @@
 
 @push('scripts')
 <script>
-    holders.{{$field->key}} = {!! $field->default !!};
+    @if (is_object(json_decode($field->default)))
+        holders.{{$field->key}} = {!! $field->default !!};
+    @else
+        holders.{{$field->key}} = {};
+    @endif
 </script>
 @endpush

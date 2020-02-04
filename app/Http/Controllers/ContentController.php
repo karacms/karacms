@@ -64,9 +64,12 @@ class ContentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $content = Content::create($data);
-
-        // @todo: Handle Meta fields
+        
+        $contentTypeData = Content::getType($data['type']);
+        $this->form->fields = $contentTypeData['fields'];
+        $data = $this->form->patch($data);
+        
+        $content = Content::createWithMeta($data);
         
         return redirect('dashboard/content/' . $content->id)->withMessage('Content created!');
     }

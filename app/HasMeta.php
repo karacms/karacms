@@ -111,10 +111,11 @@ trait HasMeta
         return $this->update($data);
     }
 
-    public function createWithMeta()
+    public static function createWithMeta($data)
     {
-        $data = $this->createMetaFromData($data);
+        $model  = new self;
+        $data = $model->createMetaFromData($data);
 
-        return $this->create($data);
+        return self::create($data);
     }
 }
