@@ -17,6 +17,16 @@ class Publishing extends BaseField
             'title' => 'Publishing',
             'fields' => [
                 [
+                    'type' => 'hidden',
+                    'key' => 'creator_id',
+                    'default' => 1
+                ],
+                [
+                    'type' => 'hidden',
+                    'key' => 'type',
+                    'default' => 'post'
+                ],
+                [
                     'type' => 'select',
                     'key' => 'status',
                     'id' => 'status',

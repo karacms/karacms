@@ -12,5 +12,7 @@
 <h1 class="text-2xl">Create New {{$contentTypeData['name']}}</h1>
 @endif
 
-{!! $form->render() !!}
+<div class="mt-5">
+    {!! $form->render() !!}
+</div>
 @endsection

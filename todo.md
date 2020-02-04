@@ -23,10 +23,6 @@
 
 # Custom Fields
     - Next Phrase: Allow users create their own field
-    - Make Publishing field
-    - Make Container field
-    - Make Column Field
-    - Make Row Field
     - Repeater Field
     - File
     - Uppy
@@ -57,4 +53,3 @@
     - Datetime-local Safari, Firefox
 
 - Remove submit-prevent saveContent()
-- Implement nested field (Publish)

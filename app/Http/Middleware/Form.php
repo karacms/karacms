@@ -26,24 +26,13 @@ class Form
                     'type' => 'row',
                     'fields' => [
                         [
-                            'type' => 'hidden',
-                            'key' => 'creator_id',
-                            'default' => 1
-                        ],
-                        [
-                            'type' => 'hidden',
-                            'key' => 'type',
-                            'default' => 'page',
-                        ],
-                        [
                             'type' => 'column',
-                            'class' => 'flex-1',
+                            'class' => 'flex-1 mr-5',
                             'fields' => [
                                 [
                                     'type' => 'text',
                                     'key' => 'title',
-                                    'title' => 'Title',
-                                    'class' => ':inherit mr-3',
+                                    'class' => ':inherit',
                                     'placeholder' => 'Please enter title...'
                                 ],
                                 [
@@ -57,7 +46,7 @@ class Form
                         ],
                         [
                             'type' => 'column',
-                            'class' => 'ml-3 w-3/12',
+                            'class' => 'w-3/12',
                             'fields' => [
                                 [
                                     'type' => 'publishing',
@@ -87,18 +76,8 @@ class Form
                             'class' => 'mr-6',
                             'fields' => [
                                 [
-                                    'type' => 'hidden',
-                                    'key' => 'creator_id',
-                                    'default' => 1
-                                ],
-                                [
-                                    'type' => 'hidden',
-                                    'key' => 'type',
-                                    'default' => 'post'
-                                ],
-                                [
                                     'type' => 'tabs',
-                                    'position' => 'top',
+                                    'position' => 'left',
                                     'fields' => [
                                         [
                                             'type' => 'pane',
@@ -109,6 +88,14 @@ class Form
                                                     'type' => 'tel',
                                                     'key' => 'basics',
                                                     'title' => 'Phone number',
+                                                    'placeholder' => '',
+                                                    'description' => '',
+                                                    'default' => '',
+                                                ],
+                                                [
+                                                    'type' => 'email',
+                                                    'key' => 'basics',
+                                                    'title' => 'Email',
                                                     'placeholder' => '',
                                                     'description' => '',
                                                     'default' => '',
