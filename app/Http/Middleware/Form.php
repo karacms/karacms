@@ -36,15 +36,10 @@ class Form
                                     'placeholder' => 'Please enter title...'
                                 ],
                                 [
-                                    'type' => 'radio',
-                                    'title' => 'What instant noodle do you like?',
-                                    'key' => 'noodle',
-                                    'options' => [
-                                        'omachi' => 'Omachi',
-                                        'haohao' => 'Haohao',
-                                        'gaudo' => 'Gaudo'
-                                    ],
-                                    'default' => 'omachi'
+                                    'type' => 'color',
+                                    'title' => 'Main page color',
+                                    'key' => 'scheme',
+                                    'default' => '#ccddf0'
                                 ]
                             ]
                         ],

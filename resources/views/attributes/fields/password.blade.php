@@ -1,6 +1,6 @@
-<div class="mb-3">
+<div class="mb-3 field-type-password field-wrapper">
     <label>{{$field->title}}</label>
-    <input type="text" 
+    <input type="password" 
             name="{{$field->key}}"
             placeholder="{{$field->placeholder}}" 
             value="{{$field->default}}" 
