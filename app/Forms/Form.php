@@ -18,6 +18,7 @@ class Form
 
     public function getFieldData($key, $default = null)
     {
+      
         if (isset($this->data->$key)) {
             return $this->data->$key;
         }
@@ -26,7 +27,7 @@ class Form
             return $this->data[$key];
         }
 
-        if (isset($this->data['meta'][$key])) {
+        if (array_key_exists($key, $this->data['meta'])) {
             return $this->data['meta'][$key];
         }
 

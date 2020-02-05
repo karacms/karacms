@@ -90,6 +90,7 @@
     <script>
         var richTexts = {};
         var holders = {};
+        @stack('inline-scripts')
     </script>
 
     @stack('scripts')

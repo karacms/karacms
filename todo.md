@@ -23,13 +23,12 @@
 
 # Custom Fields
     - Next Phrase: Allow users create their own field
+    - Get Default value from Form (currently, from DB until it inserted)
     - Repeater Field
     - File
     - Uppy
 
-```php
 
-```
     - Next phrase: Conditional Logic
 
 # Authentication views

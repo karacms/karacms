@@ -36,12 +36,16 @@ class Form
                                     'placeholder' => 'Please enter title...'
                                 ],
                                 [
-                                    'type' => 'block-editor',
-                                    'key' => 'content',
-                                    'title' => 'Content',
-                                    'class' => ':inherit mr-3',
-                                    'placeholder' => 'Please enter content'
-                                ],
+                                    'type' => 'radio',
+                                    'title' => 'What instant noodle do you like?',
+                                    'key' => 'noodle',
+                                    'options' => [
+                                        'omachi' => 'Omachi',
+                                        'haohao' => 'Haohao',
+                                        'gaudo' => 'Gaudo'
+                                    ],
+                                    'default' => 'omachi'
+                                ]
                             ]
                         ],
                         [

@@ -7,12 +7,10 @@
     </div>
 </div>
 
-@push('scripts')
-<script>
+@push('inline-scripts')
     @if (is_object(json_decode($field->default)))
         holders.{{$field->key}} = {!! $field->default !!};
     @else
         holders.{{$field->key}} = {};
     @endif
-</script>
 @endpush
