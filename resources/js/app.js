@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
+import { Form } from './form';
 
 // EditorJS
 import EditorJS from '@editorjs/editorjs';
@@ -22,6 +23,10 @@ const ProgressBar = require('@uppy/progress-bar')
 const xhr = require('@uppy/xhr-upload')
 
 window.Vue = require('vue');
+
+
+
+
 
 Vue.use(VueQuillEditor, {
     theme: 'snow'
@@ -62,6 +67,7 @@ const app = new Vue({
         editors: {}
     },
     mounted: function () {
+
         this.richTexts = window.richTexts;
         this.holders = window.holders;
 
@@ -88,6 +94,9 @@ const app = new Vue({
                     console.log('Upload complete! We’ve uploaded these files:', result.successful)
                 });
         }
+
+        const form = new Form();
+        form.makeCollapse();
     },
     methods: {
         performSearch: _.debounce(function () {

@@ -76917,21 +76917,23 @@ module.exports = function(text, test, separator) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
-/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
-/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/list */ "./node_modules/@editorjs/list/dist/bundle.js");
-/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_editorjs_list__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
-/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form */ "./resources/js/form.js");
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @editorjs/editorjs */ "./node_modules/@editorjs/editorjs/dist/editor.js");
+/* harmony import */ var _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @editorjs/header */ "./node_modules/@editorjs/header/dist/bundle.js");
+/* harmony import */ var _editorjs_header__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_editorjs_header__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @editorjs/list */ "./node_modules/@editorjs/list/dist/bundle.js");
+/* harmony import */ var _editorjs_list__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editorjs_list__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
+/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_4__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // EditorJS
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+ // EditorJS
 
 
 
@@ -76952,7 +76954,7 @@ var ProgressBar = __webpack_require__(/*! @uppy/progress-bar */ "./node_modules/
 var xhr = __webpack_require__(/*! @uppy/xhr-upload */ "./node_modules/@uppy/xhr-upload/lib/index.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.use(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default.a, {
+Vue.use(vue_quill_editor__WEBPACK_IMPORTED_MODULE_4___default.a, {
   theme: 'snow'
 });
 /**
@@ -76990,11 +76992,11 @@ var app = new Vue({
     this.holders = window.holders;
 
     for (var holder in this.holders) {
-      this.editors[holder] = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_0___default.a({
+      this.editors[holder] = new _editorjs_editorjs__WEBPACK_IMPORTED_MODULE_1___default.a({
         holderId: holder,
         tools: {
-          header: _editorjs_header__WEBPACK_IMPORTED_MODULE_1___default.a,
-          list: _editorjs_list__WEBPACK_IMPORTED_MODULE_2___default.a
+          header: _editorjs_header__WEBPACK_IMPORTED_MODULE_2___default.a,
+          list: _editorjs_list__WEBPACK_IMPORTED_MODULE_3___default.a
         },
         data: this.holders[holder]
       });
@@ -77011,6 +77013,9 @@ var app = new Vue({
         console.log('Upload complete! We’ve uploaded these files:', result.successful);
       });
     }
+
+    var form = new _form__WEBPACK_IMPORTED_MODULE_0__["Form"]();
+    form.makeCollapse();
   },
   methods: {
     performSearch: _.debounce(function () {
@@ -77119,6 +77124,60 @@ window.doPreview = function (input) {
     document.getElementById('save-avatar').classList.toggle('hidden');
   }
 };
+
+/***/ }),
+
+/***/ "./resources/js/form.js":
+/*!******************************!*\
+  !*** ./resources/js/form.js ***!
+  \******************************/
+/*! exports provided: Form */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Form =
+/*#__PURE__*/
+function () {
+  function Form() {
+    _classCallCheck(this, Form);
+  }
+
+  _createClass(Form, [{
+    key: "makeCollapse",
+    value: function makeCollapse() {
+      var _this = this;
+
+      document.querySelectorAll('.field-type-collapse .field-type-card header').forEach(function (header) {
+        header.addEventListener('click', function (event) {
+          _this.findAncestor(header, 'field-type-collapse').querySelectorAll('.field-type-card').forEach(function (card) {
+            card.classList.remove('active');
+          });
+
+          header.parentNode.classList.add('active');
+        }, false);
+      });
+    }
+  }, {
+    key: "findAncestor",
+    value: function findAncestor(el, cls) {
+      while ((el = el.parentElement) && !el.classList.contains(cls)) {
+        ;
+      }
+
+      return el;
+    }
+  }]);
+
+  return Form;
+}();
 
 /***/ }),
 

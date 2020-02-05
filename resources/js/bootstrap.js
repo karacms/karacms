@@ -54,4 +54,3 @@ window.doPreview = input => {
         document.getElementById('save-avatar').classList.toggle('hidden');
     }
 }
-

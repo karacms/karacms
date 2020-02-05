@@ -36,10 +36,33 @@ class Form
                                     'placeholder' => 'Please enter title...'
                                 ],
                                 [
-                                    'type' => 'color',
-                                    'title' => 'Main page color',
-                                    'key' => 'scheme',
-                                    'default' => '#ccddf0'
+                                    'type' => 'collapse',
+                                    'id' => 'collapse',
+                                    'key' => 'collapse',
+                                    'fields' => [
+                                        [
+                                            'type' => 'card',
+                                            'title' => 'Card 1',
+                                            'fields' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'title' => 'Text 1',
+                                                    'key' => 'foo'
+                                                ]
+                                            ]
+                                        ],
+                                        [
+                                            'type' => 'card',
+                                            'title' => 'Card 2',
+                                            'fields' => [
+                                                [
+                                                    'type' => 'text',
+                                                    'title' => 'Text 2',
+                                                    'key' => 'bar'
+                                                ]
+                                            ]
+                                        ]
+                                    ]
                                 ]
                             ]
                         ],

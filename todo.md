@@ -21,16 +21,16 @@
     - Post
     - Style for editorjs
 
-# Custom Fields
-    - Next Phrase: Allow users create their own field
-    - Get Default value from Form (currently, from DB until it inserted)
+# Custom Fields    
     - Repeater Field
     - File
     - Uppy
 
-
     - Next phrase: Conditional Logic
-
+    - Next Phrase: Allow users create their own field
+    - Get Default value from Form (currently, from DB until it inserted)
+    - Access field parent by $field->parent helper
+    - Access next, previous field by $field->next, $field->previous, $field->siblings helper
 # Authentication views
     - Styling
 

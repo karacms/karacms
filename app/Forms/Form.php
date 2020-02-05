@@ -27,7 +27,7 @@ class Form
             return $this->data[$key];
         }
 
-        if (array_key_exists($key, $this->data['meta'])) {
+        if (isset($this->data['meta']) && is_array($this->data['meta']) && array_key_exists($key, $this->data['meta'])) {
             return $this->data['meta'][$key];
         }
 

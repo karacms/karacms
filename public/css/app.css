@@ -17241,6 +17241,14 @@ h2 {
   max-width: 100%;
 }
 
+.field-type-collapse .field-type-card .card-body {
+  display: none;
+}
+
+.field-type-collapse .field-type-card.active .card-body {
+  display: block;
+}
+
 :root {
   --uim-primary-opacity: 1;
   --uim-secondary-opacity: 0.7;
