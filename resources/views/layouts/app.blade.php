@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'KaraCMS') }}</title>
-    
+
     <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.0.1/css/unicons.css">
     <link href="https://transloadit.edgly.net/releases/uppy/v1.8.0/uppy.min.css" rel="stylesheet">
@@ -65,7 +65,7 @@
 
             <div class="flex-shrink mb-5">
                 <a href="#" title="View profile">
-                    <img style="width: 36px; height: 36px;" class="rounded-full shadow-md object-cover" src="{{ Auth::user()->avatar }}" alt="Linda's Avatar" />
+                    <img style="width: 36px; height: 36px;" class="rounded-full shadow-md object-cover" src="{{ Auth::user()->avatar }}" alt="My Avatar" />
                 </a>
             </div>
         </aside>

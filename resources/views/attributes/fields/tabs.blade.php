@@ -1,4 +1,4 @@
-<div class="mb-3 {{$field->class}} tab-{{$field->position}}">
+<div class="mb-3 field-type-tabs {{$field->class}} tab-{{$field->position}}">
     <nav>
         <ul class="nav nav-tabs border-l" role="tablist">
             @foreach ($field->fields as $index => $pane)

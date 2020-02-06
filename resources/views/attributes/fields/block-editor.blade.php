@@ -1,4 +1,4 @@
-<div class="mb-3">
+<div class="mb-3 field-type-block-editor field-wrapper">
     <label>{{$field->title}}</label>
 
     <div class="rounded p-8 shadow">

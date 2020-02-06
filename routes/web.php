@@ -36,8 +36,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['as' => 'dashboard', 'prefix' => 'dashboard'], function () {
+Route::group(['as' => 'dashboard', 'prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::resources([
+        '/' => 'DashboardController',
         'users' => 'UserController',
         'roles' => 'RoleController',
         'content' => 'ContentController',
@@ -51,39 +52,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    $fields = [
-        [
-            'type' => 'text',
-            'key' => 'foo',
-            'fields' => [
-                [
-                    'type' => 'row',
-                    'fields' => [
-                        [
-                            'type' => 'xx',
-                            'key' => 'bar'
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'container',
-        ]
-    ];
-
-    dd(getField($fields, 'bar'));
+    //
 });
-
-function getField($fields, $key)
-{
-    foreach ($fields as $field) {
-        if (isset($field['key']) && $field['key'] === $key) {
-            return $field;
-        }
-
-        if (isset($field['fields'])) {
-            return getField($field['fields'], $key);
-        }
-    }
-}
