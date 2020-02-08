@@ -25,16 +25,19 @@
     - Repeater Field
     - File
     - Uppy
-
+    - Use Bootstrap Collapse instead of create our own. We will replace later
+    
     - Next phrase: Conditional Logic
     - Next Phrase: Allow users create their own field
     - Get Default value from Form (currently, from DB until it inserted)
     - Access field parent by $field->parent helper
     - Access next, previous field by $field->next, $field->previous, $field->siblings helper
+
 # Authentication views
     - Styling
 
 # Extensions
+    - Payment
     - Booking
     - Forms
     - EduOne

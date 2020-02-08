@@ -16,6 +16,7 @@ use App\Content;
 use App\Group;
 use App\Media;
 use App\Setting;
+use Illuminate\Support\Facades\Response;
 
 function svg($icon, $classes = '')
 {
@@ -45,6 +46,8 @@ Route::group(['as' => 'dashboard', 'prefix' => 'dashboard', 'middleware' => 'aut
         'attributes' => 'AttributeController',
         'media' => 'MediaController'
     ]);
+
+    Route::post('media/upload', 'MediaController@upload');
 });
 
 Auth::routes();

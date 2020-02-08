@@ -8,8 +8,8 @@ import { Form } from './form';
 
 // EditorJS
 import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header'; 
-import List from '@editorjs/list'; 
+import Header from '@editorjs/header';
+import List from '@editorjs/list';
 
 // QuillJS
 import VueQuillEditor from 'vue-quill-editor';
@@ -55,7 +55,7 @@ const app = new Vue({
         search: '',
         users: [],
         queue: [],
-        
+
         // Content Type
         fields: [],
 
@@ -84,15 +84,22 @@ const app = new Vue({
 
         const uppyEnabled = document.getElementsByClassName('uppy').length;
         if (uppyEnabled) {
-            const uppy = Uppy()
-                .use(Dashboard, {
-                    inline: true,
-                    target: '.uppy'
-                });
+            const uppy = Uppy();
 
-                uppy.on('complete', (result) => {
-                    console.log('Upload complete! We’ve uploaded these files:', result.successful)
-                });
+            uppy.use(Dashboard, {
+                inline: true,
+                target: '.uppy',
+            });
+
+            uppy.use(xhr, {
+                endpoint: 'http://localhost:3000/dashboard/media/upload',
+                formData: true,
+                fieldName: 'media[]'
+            });
+
+            uppy.on('complete', (result) => {
+                console.log('Upload complete! We’ve uploaded these files:', result.successful)
+            });
         }
 
         const form = new Form();
@@ -132,7 +139,7 @@ const app = new Vue({
         },
 
         saveContent: function () {
-            
+
             if (!_.isEmpty(this.editors)) {
                 for (let editor in this.editors) {
                     this.editors[editor].save().then(content => {

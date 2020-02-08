@@ -21,7 +21,27 @@
     </thead>
 
     <tbody>
-        <tr></tr>
+        @if ($media->count() === 0)
+        <tr>
+            <td colspan="5">No media. Start upload with the form above.</td>
+        </tr>
+        @else
+            @foreach ($media as $file)
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                    @if (\Str::startsWith($file->type, 'image/'))
+
+                    @endif
+                    {{$file->title}}
+                </td>
+                <td>{{$file->type}}</td>
+                <td>{{$file->created_at}}</td>
+                <td>
+                </td>
+            </tr>
+            @endforeach
+        @endif
     </tbody>
 </table>
 @endsection
