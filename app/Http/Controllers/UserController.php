@@ -72,6 +72,7 @@ class UserController extends Controller
     {
         $roles = Group::type('role')->get();
         $userRoles = $user->groups()->type('role')->get()->keyBy('id');
+        
         $tabs = [
             'general' => 'General',
             'attributes' => 'Attributes',
@@ -96,7 +97,7 @@ class UserController extends Controller
 
         // Store Avatar
         if ($request->file('avatar')) {
-            $avatarPath = $request->file('avatar')->store('public/avatars');
+            $avatarPath = $request->file('avatar')->store('public/avatars', 'public_media');
             $avatarName = last(explode('/', $avatarPath));
             $data['avatar'] = $avatarName;
         }

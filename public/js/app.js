@@ -77205,8 +77205,8 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\karacms.test\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\karacms.test\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/gary/Sites/karacms/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/gary/Sites/karacms/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
