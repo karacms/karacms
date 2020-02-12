@@ -44,7 +44,8 @@ Route::group(['as' => 'dashboard', 'prefix' => 'dashboard', 'middleware' => 'aut
         'roles' => 'RoleController',
         'content' => 'ContentController',
         'attributes' => 'AttributeController',
-        'media' => 'MediaController'
+        'media' => 'MediaController',
+        'extensions' => 'ExtensionController'
     ]);
 
     Route::post('media/upload', 'MediaController@upload');
@@ -55,5 +56,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    //
+    $test = ['foo', 'bar', 'baz'];
+
+    $actionName = $test[0];
+
+    array_shift($test);
+
+    dd($test);
 });

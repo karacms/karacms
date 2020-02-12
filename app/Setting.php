@@ -15,7 +15,7 @@ class Setting extends Model
     public static function get($name, $default = null, $instance_id = null)
     {
         $setting = self::where(self::getScope($name, $instance_id))->first();
-
+  
         if ( ! is_null($setting)) {
             
             $options = $setting->options;
@@ -25,7 +25,7 @@ class Setting extends Model
                 $options = json_decode($options, true);
             }
             
-            return $options;
+            return $options ?? $default;
         }
 
         if ( ! is_null(config('kara.default_settings.' . $name))) {
@@ -52,6 +52,29 @@ class Setting extends Model
             self::getScope($name, $instance_id),
             $update
         );
+    }
+
+    public static function merge($name, $options, $instance_id = null)
+    {
+        $old = self::get($name, [], $instance_id);
+        $new = array_unique(array_merge($old, $options));
+
+        return self::set($name, $new, $instance_id);
+    }
+
+    public static function diff($name, $options, $instance_id = null)
+    {
+        $old = self::get($name, [], $instance_id);
+        $new = array_unique(array_diff($old, $options));
+
+        return self::set($name, $new, $instance_id);
+    }
+
+    public static function remove($name, $instance_id)
+    {
+        $setting = self::where(self::getScope($name, $instance_id))->first();
+
+        return $setting->delete();
     }
 
      /**

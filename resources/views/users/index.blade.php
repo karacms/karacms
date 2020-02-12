@@ -55,12 +55,14 @@
                     @endif
                 </td>
                 <td>
-                    <form method="POST" action="{{url('/dashboard/users/' . $user->id)}}">
+                    <form class="inline" method="POST" action="{{url('/dashboard/users/' . $user->id)}}">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE" />
                         <button class="rounded-sm border border-red-500 px-2 py-1">Delete</button>
-                        <a class="rounded-sm border border-gray-400 py-1 px-2" href="{{url('/dashboard/users/' . $user->id)}}" title="Edit">Edit</a>
                     </form>
+                    <a class="rounded-sm border border-gray-400 py-1 px-2" href="{{url('/dashboard/users/' . $user->id)}}" title="Edit">Edit</a>
+
+                    @hook('dashboard/users/index/actions')
                 </td>
             </tr>
 

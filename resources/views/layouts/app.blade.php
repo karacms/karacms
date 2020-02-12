@@ -40,7 +40,7 @@
                         </li>
 
                         <li class="text-3xl text-white mt-4 p-0">
-                            <a href="{{url('/dashboard/users')}}">
+                            <a href="{{url('/dashboard/extensions')}}">
                                 {!! svg('line/apps', 'hover:bg-gray-500') !!}
                             </a>
                         </li>
