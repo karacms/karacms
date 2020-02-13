@@ -30,7 +30,7 @@ class ExtensionsManager
             $extensionNamespace = Str::studly($extensionNamespace);
             $extension = call_user_func(['\KaraCMS\Extensions\\' . $extensionNamespace . '\Extension', 'getInstance']); 
             $extension->path = $extensionPath;
-
+            
             $this->register($extension);
         }
     }
@@ -66,11 +66,12 @@ class ExtensionsManager
         }
 
         foreach ($extensionsName as $extensionName) {
+            $extension = $this->extensions[$extensionName];
+
             // Fire @onActivate:extensionName event so other code can access and mofidy the data
             Hook::process(['onActivate:' . $extensionName, $extension]);
             
             // Also fire @onActivate event of the extension class
-            $extension = $this->extensions[$extensionName];
             $extension->onActivate();
         }
 
@@ -90,11 +91,20 @@ class ExtensionsManager
 
         foreach ($extensionsName as $extensionName) {
             $extension = $this->extensions[$extensionName];
+
+            // Fire @onDeactivate:extensionName event so other code can access and mofidy the data
+            Hook::process(['onActivate:' . $extensionName, $extension]);
+
             $extension->onDeactivate();
         }
 
         // @todo: Fire Extension::onDeactivate event
         return Setting::diff('activated_extensions', $extensionsName);
+    }
+
+    public function onDeactivate($extensionName, callable $callback)
+    {
+        Hook::add('onDeactivate:' . $extensionName, $callback);
     }
 
     public function uninstall($extensionName)

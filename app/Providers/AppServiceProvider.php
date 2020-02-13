@@ -30,7 +30,5 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('fire', function ($expression) {
             return "<?php \App\Hooks\Hook::process($expression); ?>";
         });
-
-        // ExtensionsManager::init($this);
     }
 }

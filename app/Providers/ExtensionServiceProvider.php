@@ -30,24 +30,56 @@ class ExtensionServiceProvider extends ServiceProvider
 
         foreach ($allExtensions as $name => $extension) {
             
-            if (in_array($name, $activatedExtensions)) {
-                $extension->status = 'activated';
-            }
-
             $em->onActivate($extension->name, function () use ($extension) {
                 if (file_exists($extension->path . '/public')) {
                     $this->publishes([
                         $extension->path . '/public' => public_path('vendor/' . $extension->name)
                     ], $extension->name);
+
+                    Artisan::call("vendor:publish --tag={$extension->name} --force");
                 }
 
-                Artisan::call("vendor:publish --tag={$extension->name} --force");
+                if (file_exists($extension->path . '/migrations')) {
+                    $this->loadMigrationsFrom($extension->path . '/migrations');
+                    $migrationsRelativePath = "extensions/{$extension->name}/migrations";
+                    Artisan::call('migrate --path="' . $migrationsRelativePath . '" --force');
+                }
             });
 
-            // Load extension views
-            $this->loadViewsFrom($extension->path . '/views', $extension->name);
+            // $em->onDeactivate($extension->name, function () use ($extension) {
+            //     // 
+            // });
+
+            // $em->onUninstall($extension->name, function () use ($extension) {
+            //     // Migrate down
+            // });
+
+            if (in_array($name, $activatedExtensions)) {
+                $extension->status = 'activated';
             
-            $extension->init();
+                if (file_exists($extension->path . '/config.php')) {
+                    $this->mergeConfigFrom($extension->path . '/config.php', $extension->name);
+                }
+
+                // Load extension views
+                if (file_exists($extension->path . '/views')) {
+                    $this->loadViewsFrom($extension->path . '/views', $extension->name);
+                }
+
+                if (file_exists($extension->path . '/factories')) {
+                    $this->loadFactoriesFrom($extension->path . '/factories');
+                }
+                
+                if (file_exists($extension->path . '/routes.php')) {
+                    $this->loadRoutesFrom($extension->path . '/routes.php');
+                }
+
+                if (file_exists($extension->path . '/translations')) {
+                    $this->loadTranslationsFrom($extension->path . '/translations', $extension->name);
+                }
+                
+                $extension->init();
+            }
         }
     }
 }
