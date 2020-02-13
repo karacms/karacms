@@ -10,7 +10,7 @@ class Hook
 
     private $actions = [];
 
-    private function add($actionName, Callable $callback, $priority = 10, $alias = null)
+    private function add($actionName, $callback, $priority = 10, $alias = null)
     {
         if (!isset($this->actions[$actionName])) {
             $this->actions[$actionName] = [];
@@ -45,7 +45,18 @@ class Hook
     
         foreach ($allHooks as $priority => $callbacks) {
             foreach ($callbacks as $callback) {
-                call_user_func_array($callback, $args);
+                if (is_callable($callback)) {
+                    call_user_func_array($callback, $args);
+                    continue;
+                }
+
+                if ($callback instanceof \Illuminate\View\View) {
+                    echo $callback->render();
+                }
+
+                if (is_string($callback)) {
+                    echo $callback;
+                }
             }
         }
     }

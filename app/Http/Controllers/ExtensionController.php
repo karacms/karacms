@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ExtensionsManager;
+use App\Extensions\ExtensionsManager;
 use Illuminate\Http\Request;
 
 class ExtensionController extends Controller
@@ -12,9 +12,9 @@ class ExtensionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ExtensionsManager $em)
     {
-        $installed = ExtensionsManager::all();
+        $installed = $em->all();
 
         // $installed = [
         //     [
@@ -69,14 +69,14 @@ class ExtensionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ExtensionsManager $em)
     {
         if (!empty($request->activate)) {
-            ExtensionsManager::activate($request->activate);
+            $em->activate($request->activate);
         }
 
         if (!empty($request->deactivate)) {
-            ExtensionsManager::deactivate($request->deactivate);
+            $em->deactivate($request->deactivate);
         }
 
         return back()->withMessage('Extension activated!');

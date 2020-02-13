@@ -42,7 +42,10 @@
     - Forms
     - EduOne
     - Shop
-    - Login As
+    - Login As - Working
+
+- Add auto publish assets feature for activated plugin, when activated
+
 
 # Social Login
     - Facebook

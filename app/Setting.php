@@ -66,7 +66,6 @@ class Setting extends Model
     {
         $old = self::get($name, [], $instance_id);
         $new = array_unique(array_diff($old, $options));
-
         return self::set($name, $new, $instance_id);
     }
 
