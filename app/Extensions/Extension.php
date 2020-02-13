@@ -1,12 +1,11 @@
 <?php
 namespace App\Extensions;
 
-use App\Hooks\Singleton;
 use App\EasyCall;
 
 abstract class BaseExtension
 {
-    use EasyCall, Singleton;
+    use EasyCall;
 
     public function __get(string $name)
     {

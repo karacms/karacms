@@ -26,9 +26,12 @@ class ExtensionsManager
         $extensionDirectories = array_filter(glob(base_path('extensions/*')), 'is_dir');
 
         foreach ($extensionDirectories as $extensionPath) {
+   
             $extensionNamespace = Str::afterLast($extensionPath, '/');
             $extensionNamespace = Str::studly($extensionNamespace);
-            $extension = call_user_func(['\KaraCMS\Extensions\\' . $extensionNamespace . '\Extension', 'getInstance']); 
+            
+            $extensionClass = "\\KaraCMS\\Extensions\\{$extensionNamespace}\\Extension";
+            $extension = new $extensionClass;
             $extension->path = $extensionPath;
             
             $this->register($extension);
