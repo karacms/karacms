@@ -62,7 +62,7 @@
                     </form>
                     <a class="rounded-sm border border-gray-400 py-1 px-2" href="{{url('/dashboard/users/' . $user->id)}}" title="Edit">Edit</a>
 
-                    @hook(['dashboard/users/index/actions', $user])
+                    @fire(['dashboard/users/index/actions', $user])
                 </td>
             </tr>
 

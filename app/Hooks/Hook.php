@@ -8,9 +8,23 @@ class Hook
 {
     use EasyCall, Singleton;
 
+    /**
+     * All listeners
+     * 
+     * @var array
+     */
     private $actions = [];
 
-    private function add($actionName, $callback, $priority = 10, $alias = null)
+    /**
+     * Add Event Listener
+     * 
+     * @param String $actionName Listener name
+     * @param String/callable $callback Callback
+     * @param int $priority
+     * 
+     * @return void
+     */
+    private function add(string $actionName, $callback, $priority = 10, $alias = null)
     {
         if (!isset($this->actions[$actionName])) {
             $this->actions[$actionName] = [];

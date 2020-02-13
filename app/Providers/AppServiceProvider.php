@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('hook', function ($expression) {
+        Blade::directive('fire', function ($expression) {
             return "<?php \App\Hooks\Hook::process($expression); ?>";
         });
 
