@@ -71,6 +71,11 @@ class Media extends Model
         return $this->isType('image');
     }
 
+    public function isAudio()
+    {
+        return $this->isType('audio');
+    }
+
     public static function allAvailableTags()
     {
         return Group::where('type', 'media-tag')->get();

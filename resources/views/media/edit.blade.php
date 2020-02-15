@@ -62,6 +62,10 @@
                 @if ($file->isImage())
                 <img class="max-w-full" src="{{url($file->url)}}" alt="{{$file->title}}" />
                 @endif
+
+                @if ($file->isAudio())
+                <audio controls src="{{url($file->url)}}"></audio>
+                @endif
             </section>
         </div>
         

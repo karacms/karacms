@@ -183,6 +183,7 @@ textarea {
 
 .color-checklist {
     display: inline-block;
+    min-width: 20px;
 
     input {
         display: none;
@@ -229,7 +230,6 @@ textarea {
     img {
         border: 1px solid #eee;
         padding: 10px;
-        max-height: 500px;
-        max-width: 100%;
+        max-width: 800px;
     }
 }

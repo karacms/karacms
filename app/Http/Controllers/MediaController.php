@@ -15,6 +15,17 @@ class MediaController extends Controller
      */
     public function index(Request $request)
     {
+        // $audio = public_path('media/uploaded/nhatky.mp3');
+        // $getID3 = new \getID3();
+        // $audioInfo = $getID3->analyze($audio);
+        // // $getID3->CopyTagsToComments($audioInfo);
+        // dd($audioInfo);
+
+        // $wallpaper = public_path('media/uploaded/wallpapers.zip');
+        // $getID3 = new \getID3();
+        // $wallpaperInfo = $getID3->analyze($wallpaper);
+        // dd($wallpaperInfo);
+
         $media = Media::ofTag($request->tag)->ofType($request->type)->paginate(20);
         $allTags = Media::allAvailableTags();
 
@@ -107,27 +118,57 @@ class MediaController extends Controller
 
             $files = $request->file('media');
 
-            foreach ($files as $file) {
-                
-                // Fix the image orientation
-                $image = \Image::make($file->getPathname())->orientate();
-                $imageName = $file->getClientOriginalName();
-                $mediaPath = public_path('media/uploaded/' . $imageName);
+            foreach ($files as $file) {                
+                $fileType = $file->getMimeType();
 
-                $image->save($mediaPath);
+                $fileName = $file->getClientOriginalName();
+                $filePath = public_path('media/uploaded/' . $fileName);
 
-                // @todo: Specify URL here
-                Media::create([
-                    'title' => $file->getClientOriginalName(),
-                    'url' => 'media/uploaded/' . $imageName,
-                    'type' => $file->getMimeType(),
-                    'meta' => [
+                $media = [
+                    'title' => $fileName,
+                    'url' => 'media/uploaded/' . $fileName,
+                    'type' => $fileType,
+                ];
+
+                // Handle image manipulation during upload: jpg, jpeg
+                if ($fileType === 'image/jpeg') {
+                    // Fix the image orientation
+                    $image = \Image::make($file->getPathname())->orientate();
+                    $image->save($filePath);
+
+                    $media['meta'] = [
                         'size' => $file->getSize(),
                         'exif' => $image->exif(),
                         'width' => $image->width(),
                         'height' => $image->height()
-                    ]
-                ]);
+                    ];
+                }
+
+                // Handle Audio: .mp3
+                if ($fileType === 'audio/mpeg') {
+                    // $audio = public_path('media/uploaded/SampleAudio_0.4mb.mp3');
+                    $fileName = $file->storeAs('uploaded', $fileName, 'public_media');
+
+                    $getID3 = new \getID3();
+                    $audioInfo = $getID3->analyze($filePath);
+
+                    $media['meta'] = [
+                        'size' => $file->getSize(),
+                        'audio' => $audioInfo['audio'],
+                        'playtime_seconds' => $audioInfo['playtime_seconds'],
+                        'playtime_string' => $audioInfo['playtime_string'],
+                    ];
+
+                    if (isset($audioInfo['tags']) && isset($audioInfo['tags']['id3v2'])) {
+                        $media['meta']['tags'] = $audioInfo['tags']['id3v2'];
+                    }
+
+                    if (isset($audioInfo['comments'])) {
+                        $media['meta']['comments'] = $audioInfo['comments'];
+                    }
+                }
+
+                Media::create($media);
             }
 
             // $avatarName = last(explode('/', $avatarPath));

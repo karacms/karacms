@@ -11,7 +11,12 @@
     - Store all uploaded files path in users media table
 
 # Media
-    - Handle Uppy upload
+    - Upload Audio, Video, Documents
+    - Handle `Mine` type
+    - Search box
+    - Mass delete
+    - Resize image by size
+    - Resize image by dimensions
 
 # Settings
     - Allow register
