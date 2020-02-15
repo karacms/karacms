@@ -30,14 +30,18 @@
             <tr>
                 <td><input type="checkbox" /></td>
                 <td>
-                    @if (\Str::startsWith($file->type, 'image/'))
+                    <a href="{{url('dashboard/media/' . $file->id)}}">
+                        @if ($file->isImage())
+                        <img class="inline-block mr-4" src="{{url($file->url)}}" alt="{{$file->title}}" width="60" />
+                        @endif
 
-                    @endif
-                    {{$file->title}}
+                        {{$file->title}}
+                    </a>
                 </td>
-                <td>{{$file->type}}</td>
+                <td><pre>{{$file->type}}</pre></td>
                 <td>{{$file->created_at}}</td>
                 <td>
+                    <a href="{{url('dashboard/media/'. $file->id)}}" title="Edit">Edit</a>
                 </td>
             </tr>
             @endforeach

@@ -43,6 +43,7 @@
     - EduOne
     - Shop
     - Login As - Working
+    - Advanced Email
 
 - Add auto publish assets feature for activated plugin, when activated
 
@@ -75,4 +76,3 @@
 ```
 
 - Extension Store
-- Extension Priority

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Media extends Model
 {
@@ -15,7 +16,7 @@ class Media extends Model
         'creator_id' => 'integer'
     ];
 
-    public function categories()
+    public function tags()
     {
         return $this->morphToMany('App\Group', 'groupable');
     }
@@ -38,5 +39,15 @@ class Media extends Model
     public function resize()
     {
         //
+    }
+
+    public function isType(string $type)
+    {
+        return Str::startsWith($this->type, $type . '/');
+    }
+
+    public function isImage()
+    {
+        return $this->isType('image');
     }
 }

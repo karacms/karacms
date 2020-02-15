@@ -138,3 +138,97 @@ select,
 textarea {
     line-height: normal;
 }
+
+.color-checkbox {
+    input {
+        display: none;
+    }
+
+    span:after {
+        content: '+';
+        width: 18px;
+        height: 18px;
+        display: block;
+        margin-top: -5px;
+        margin-left: 2px;
+        display: none;
+    }
+
+    span{
+        width: 14px; 
+        height: 14px;
+        border: 2px solid transparent; 
+        color: #fff;
+        border-radius: 50%;
+        display:inline-block;
+        vertical-align:top; 
+    }
+
+    &:hover {
+        span {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &:hover span:after {
+       display: block;
+    }
+
+    input:checked + span {
+        border: 2px solid #111; 
+        color: #fff;
+    }
+}
+
+.color-checklist {
+    display: inline-block;
+
+    input {
+        display: none;
+    }
+
+    span {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        
+
+        &:hover {
+            width: 20px;
+            height: 20px;
+            border-width: 1px;
+            border-style: solid;
+        }
+    }
+
+    input:checked + span {
+        width: 20px;
+        height: 20px;
+        border-width: 1px;
+        border-style: solid;
+
+        &:after {
+            width: 20px;
+            height: 20px;
+            content: "✓";
+            display: block;
+            color: #fff;
+            margin: auto;
+            text-align: center;
+            line-height: 20px;
+            margin-left: -1px;
+        }
+    }
+}
+
+.media-preview {
+    img {
+        border: 1px solid #eee;
+        padding: 10px;
+        max-height: 500px;
+        max-width: 100%;
+    }
+}

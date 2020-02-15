@@ -1680,6 +1680,8 @@
 .ql-container.ql-snow {
   border: 1px solid #ccc;
 }
+@charset "UTF-8";
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -19868,6 +19870,93 @@ optgroup,
 select,
 textarea {
   line-height: normal;
+}
+
+.color-checkbox input {
+  display: none;
+}
+
+.color-checkbox span:after {
+  content: "+";
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin-top: -5px;
+  margin-left: 2px;
+  display: none;
+}
+
+.color-checkbox span {
+  width: 14px;
+  height: 14px;
+  border: 2px solid transparent;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.color-checkbox:hover span {
+  width: 18px;
+  height: 18px;
+}
+
+.color-checkbox:hover span:after {
+  display: block;
+}
+
+.color-checkbox input:checked + span {
+  border: 2px solid #111;
+  color: #fff;
+}
+
+.color-checklist {
+  display: inline-block;
+}
+
+.color-checklist input {
+  display: none;
+}
+
+.color-checklist span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.color-checklist span:hover {
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.color-checklist input:checked + span {
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.color-checklist input:checked + span:after {
+  width: 20px;
+  height: 20px;
+  content: "\2713";
+  display: block;
+  color: #fff;
+  margin: auto;
+  text-align: center;
+  line-height: 20px;
+  margin-left: -1px;
+}
+
+.media-preview img {
+  border: 1px solid #eee;
+  padding: 10px;
+  max-height: 500px;
+  max-width: 100%;
 }
 
 @media (min-width: 640px){
