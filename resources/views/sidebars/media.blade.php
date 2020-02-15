@@ -17,7 +17,7 @@
     <ul class="mt-2">
         @foreach ($allTags as $tag)
         <li class="text-gray-600 mt-1">
-            <a href="{{request()->fullUrlWithQuery(['tag' => $tag->slug])}}">
+            <a href="{{request()->fullUrlWithQuery(['tag' => $tag->id])}}">
                 <span class="inline-block w-3 h-3 bg-{{$tag->slug}}-400 border border-{{$tag->slug}}-500 rounded-full"></span> {{$tag->name}}
             </a>
         </li>

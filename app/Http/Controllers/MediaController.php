@@ -13,9 +13,9 @@ class MediaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $media = Media::paginate(20);
+        $media = Media::ofTag($request->tag)->ofType($request->type)->paginate(20);
         $allTags = Media::allAvailableTags();
 
         return frontend('media/index', compact('media', 'allTags'));

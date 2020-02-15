@@ -41,6 +41,26 @@ class Media extends Model
         //
     }
 
+    public function scopeOfTag($query, $value)
+    {
+        if (empty($value)) {
+            return $query;
+        }
+
+        return $query->whereHas('tags', function ($query) use ($value) {
+            return $query->where('groups.id', $value);
+        });
+    }
+
+    public function scopeOfType($query, $value)
+    {
+        if (empty($value)) {
+            return $query;
+        }
+
+        return $query->whereType($value);
+    }
+
     public function isType(string $type)
     {
         return Str::startsWith($this->type, $type . '/');
