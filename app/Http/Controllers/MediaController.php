@@ -108,19 +108,24 @@ class MediaController extends Controller
             $files = $request->file('media');
 
             foreach ($files as $file) {
-                $fileName = $file->storeAs('uploaded', $file->getClientOriginalName(), 'public_media');
-                $mediaPath = public_path('media/' . $fileName);
+                
+                // Fix the image orientation
+                $image = \Image::make($file->getPathname())->orientate();
+                $imageName = $file->getClientOriginalName();
+                $mediaPath = public_path('media/uploaded/' . $imageName);
 
-                $image = \Image::make($mediaPath);
+                $image->save($mediaPath);
 
                 // @todo: Specify URL here
                 Media::create([
                     'title' => $file->getClientOriginalName(),
-                    'url' => 'media/' . $fileName,
+                    'url' => 'media/uploaded/' . $imageName,
                     'type' => $file->getMimeType(),
                     'meta' => [
                         'size' => $file->getSize(),
-                        'exif' => $image->exif()
+                        'exif' => $image->exif(),
+                        'width' => $image->width(),
+                        'height' => $image->height()
                     ]
                 ]);
             }

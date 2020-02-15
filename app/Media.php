@@ -54,11 +54,11 @@ class Media extends Model
 
     public function scopeOfType($query, $value)
     {
-        if (empty($value)) {
-            return $query;
+        if ($value === 'image') {
+            return $query->where('type', 'LIKE', '%' . $value . '/%');
         }
 
-        return $query->whereType($value);
+        return $query;
     }
 
     public function isType(string $type)

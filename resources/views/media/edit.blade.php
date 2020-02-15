@@ -1,5 +1,26 @@
 @extends('layouts.app')
 
+@section('sidebar')
+<div class="p-4">
+    <h3>Media Info</h3>
+    
+    <dl class="mt-4">
+        <dt>Path</dt>
+
+        <dd class="text-sm font-mono border border-gray-300 p-2 break-all text-gray-600">
+            {{$file->url}}
+        </dd>
+
+        <dt class="mt-2">Size</dt>
+        <dd class="text-sm font-mono text-gray-600">1.2 MB</dd>
+
+        <dt class="mt-2">Dimensions</dt>
+        <dd class="text-sm"><span class="font-mono text-gray-400">980</span> : <span class="font-mono text-gray-400">1666</span> px</dd>
+
+    </dl>
+</div>
+@endsection
+
 @section('content')
     <h1>Edit Media</h1>
 
