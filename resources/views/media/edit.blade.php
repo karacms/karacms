@@ -1,26 +1,5 @@
 @extends('layouts.app')
 
-@section('sidebar')
-<div class="p-4">
-    <h3>Media Info</h3>
-    
-    <dl class="mt-4">
-        <dt>Path</dt>
-
-        <dd class="text-sm font-mono border border-gray-300 p-2 break-all text-gray-600">
-            {{$file->url}}
-        </dd>
-
-        <dt class="mt-2">Size</dt>
-        <dd class="text-sm font-mono text-gray-600">1.2 MB</dd>
-
-        <dt class="mt-2">Dimensions</dt>
-        <dd class="text-sm"><span class="font-mono text-gray-400">980</span> : <span class="font-mono text-gray-400">1666</span> px</dd>
-
-    </dl>
-</div>
-@endsection
-
 @section('content')
     <h1>Edit Media</h1>
 
@@ -29,7 +8,7 @@
         @csrf
 
         <div class="flex mt-6">
-            <section class="media-form w-4/12 mr-6">
+            <section class="media-form w-5/12 mr-6">
                 <fieldset>
                     <label for="title">Title</label>
                     <input type="text" name="title" value="{{$file->title}}" class="px-2 py-1 rounded-sm w-full border border-gray-200" placeholder="Media title" />
@@ -50,13 +29,42 @@
                     @endforeach
                 </fieldset>
 
+                @if (isset($file->url))
+                <fieldset class="mt-3">
+                    <label>URL</label>
+                    <input disabled type="text" value="{{url($file->url)}}" class="w-full bg-gray-100 px-2 py-1 text-gray-600" />
+                </fieldset>
+                @endif
+
+                @if (isset($file->meta['size']) && is_numeric($file->meta['size']))
+                <fieldset class="mt-3">
+                    <label>Size</label>
+                    <input disabled type="text" value="{{number_format($file->meta['size'] / 1024 / 1024, 2)}} MB" class="w-full bg-gray-100 px-2 py-1 text-gray-600" />
+                </fieldset>
+                @endif
+
+                @if (isset($file->meta['width']) && isset($file->meta['height']))
+                <fieldset class="mt-3">
+                    <h4>Dimensions</h4>
+                    <input disabled type="text" value="{{$file->meta['width'] ?? 0}} px" class="bg-gray-100 px-2 py-1 text-gray-600" /> :
+                    <input disabled type="text" value="{{$file->meta['height'] ?? 0}} px" class="bg-gray-100 px-2 py-1 text-gray-600" />
+                </fieldset>
+                @endif
+
+                @if (isset($file->meta['playtime_string']))
+                <fieldset class="mt-3">
+                    <h4>Duration</h4>
+                    <input disabled type="text" value="{{$file->meta['playtime_string'] ?? 0}}" class="w-full bg-gray-100 px-2 py-1 text-gray-600" /> 
+                </fieldset>
+                @endif
+
                 <div class="mt-5">
                     <button class="px-2 py-1 rounded-sm bg-blue-400 text-white">Save Changes</button>
                     <a class="px-2 py-1 rounded-sm border border-gray-500 text-gray-500" href="{{url('dashboard/media')}}">Go Back</a>
                 </div>
             </section>
             
-            <section class="media-preview">
+            <section class="media-preview flex-1">
                 <h3>Preview</h3>
 
                 @if ($file->isImage())
@@ -64,7 +72,13 @@
                 @endif
 
                 @if ($file->isAudio())
-                <audio controls src="{{url($file->url)}}"></audio>
+                <audio class="w-full" controls src="{{url($file->url)}}"></audio>
+                @endif
+
+                @if($file->isVideo())
+                <video controls class="w-full">
+                    <source src="{{url($file->url)}}" type="{{$file->type}}" />
+                </video>
                 @endif
             </section>
         </div>

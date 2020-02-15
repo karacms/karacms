@@ -70,11 +70,9 @@
             </div>
         </aside>
 
-        <aside style="width: 240px" class="bg-gray-200">
-            @yield('sidebar')
-        </aside>
+        @yield('sidebar')
 
-        <main class="p-6 flex-auto">
+        <main class="p-6 flex-1">
             <div class="flex flex-col h-full">
                 <div class="flex-grow mb-20">
                     @include('components/message')

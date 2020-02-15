@@ -1,3 +1,4 @@
+<aside style="width: 280px" class="bg-gray-200 flex-shrink">
 <div class="p-6">
     <h1 class="text-2xl">Content</h1>
 
@@ -13,3 +14,4 @@
         <li class="mt-3"><a class="text-gray-500" href="#">Category</a></li>
     </ul>
 </div>
+</aside>

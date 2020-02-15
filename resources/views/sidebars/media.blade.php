@@ -1,3 +1,4 @@
+<aside style="width: 280px" class="bg-gray-200 flex-shrink">
 <div class="p-6">
     <h2 class="text-2xl">Media Library</h2>
 
@@ -31,3 +32,4 @@
         @endforeach
     </ul>
 </div>
+</aside>

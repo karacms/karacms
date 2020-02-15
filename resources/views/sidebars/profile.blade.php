@@ -1,3 +1,4 @@
+<aside style="width: 280px" class="bg-gray-200 flex-shrink">
 <div class="p-6">
     <div class="relative w-full mt-3">
         <form enctype="multipart/form-data" method="post" action="{{url('dashboard/users/' . $user->id)}}">
@@ -18,3 +19,4 @@
         @endforeach
     </ul>
 </div>
+</aside>

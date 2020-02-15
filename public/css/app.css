@@ -19953,12 +19953,6 @@ textarea {
   margin-left: -1px;
 }
 
-.media-preview img {
-  border: 1px solid #eee;
-  padding: 10px;
-  max-width: 800px;
-}
-
 @media (min-width: 640px){
   .sm\:sr-only{
     position: absolute;
