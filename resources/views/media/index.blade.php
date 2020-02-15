@@ -32,7 +32,7 @@
                 <td>
                     <a href="{{url('dashboard/media/' . $file->id)}}">
                         @if ($file->isImage())
-                        <img class="inline-block mr-4" src="{{url($file->url)}}" alt="{{$file->title}}" width="60" />
+                        <img class="inline-block mr-2 rounded" src="{{url($file->url)}}" alt="{{$file->title}}" width="60" />
                         @endif
 
                         {{$file->title}}

@@ -4,7 +4,7 @@
     <h2 class="text-base mt-4 text-gray-400">Kinds</h2>
 
     <ul class="mt-2">
-        <li>Images</li>
+        <li><a href="{{request()->fullUrlWithQuery(['bar' => 'Baz'])}}">Images</a></li>
         <li>Audio</li>
         <li>Videos</li>
         <li>Documents</li>
@@ -15,12 +15,12 @@
     <h2 class="text-base mt-4 text-gray-400">Tags</h2>
 
     <ul class="mt-2">
-        <li>Red</li>
-        <li>Orange</li>
-        <li>Yellow</li>
-        <li>Green</li>
-        <li>Blue</li>
-        <li>Purple</li>
-        <li>Gray</li>
+        @foreach ($allTags as $tag)
+        <li class="text-gray-600 mt-1">
+            <a href="{{request()->fullUrlWithQuery(['tag' => $tag->slug])}}">
+                <span class="inline-block w-3 h-3 bg-{{$tag->slug}}-400 border border-{{$tag->slug}}-500 rounded-full"></span> {{$tag->name}}
+            </a>
+        </li>
+        @endforeach
     </ul>
 </div>

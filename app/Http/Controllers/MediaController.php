@@ -16,8 +16,9 @@ class MediaController extends Controller
     public function index()
     {
         $media = Media::paginate(20);
+        $allTags = Media::allAvailableTags();
 
-        return frontend('media/index', compact('media'));
+        return frontend('media/index', compact('media', 'allTags'));
     }
 
     /**
@@ -61,8 +62,10 @@ class MediaController extends Controller
     public function edit(int $id)
     {
         $file = Media::findOrFail($id);
+        $allTags = Media::allAvailableTags();
+        $fileTags = $file->tags()->pluck('groups.id')->toArray();
         
-        return view('media/edit', compact('file'));
+        return view('media/edit', compact('file', 'allTags', 'fileTags'));
     }
 
     /**
@@ -74,7 +77,17 @@ class MediaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = array_filter($request->all());
+
+        $media = Media::find($id);
+        $media->update($data);
+
+        // Sync tags
+        if (isset($data['tags'])) {
+            $media->tags()->sync($data['tags']);
+        }
+
+        return back()->withMessage('Media updated!');
     }
 
     /**

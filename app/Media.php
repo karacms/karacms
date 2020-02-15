@@ -50,4 +50,9 @@ class Media extends Model
     {
         return $this->isType('image');
     }
+
+    public static function allAvailableTags()
+    {
+        return Group::where('type', 'media-tag')->get();
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class GroupsTableSeeder extends Seeder
 {
@@ -11,30 +13,57 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Group::create([
-            'slug' => 'administrator',
-            'type' => 'role',
-            'name' => 'Administrator',
-            'description' => 'Administrator Role',
-            'permissions' => [
-                'administrator' => 1
-            ]
-        ]);
+        $timestamp = Carbon::now();
 
-        App\Group::create([
-            'slug' => 'editor',
-            'type' => 'role',
-            'name' => 'Editor',
-            'description' => 'Editor Role',
-            'permissions' => []
-        ]);
+        $groups = [
+            // Role Groups
+            [
+                'slug' => 'administrator',
+                'type' => 'role',
+                'name' => 'Administrator',
+                'description' => 'Administrator Role',
+                'permissions' => json_encode([
+                    'administrator' => 1
+                ]),
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp,
+            ],
+            [
+                'slug' => 'editor',
+                'type' => 'role',
+                'name' => 'Editor',
+                'description' => 'Editor Role',
+                'permissions' => json_encode([]),
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp,
+            ],
+            [
+                'slug' => 'subscriber',
+                'type' => 'role',
+                'name' => 'Subscriber',
+                'description' => 'Subscriber Role',
+                'permissions' => json_encode([]),
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp,
+            ],
+            // Media Tag Groups
+        ];
 
-        App\Group::create([
-            'slug' => 'subscriber',
-            'type' => 'role',
-            'name' => 'Subscriber',
-            'description' => 'Subscriber Role',
-            'permissions' => []
-        ]);
+        $colors = ['blue', 'red', 'yellow', 'brown', 'orange', 'green', 'purple', 'teal'];
+
+        foreach ($colors as $color) {
+            $groups[] = [
+                'slug' => $color,
+                'type' => 'media-tag',
+                'name' => Str::title($color),
+                'description' => '',
+                'permissions' => json_encode([]),
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp
+            ];
+        }
+
+        App\Group::insert($groups);
+        // Create Media Tag Group
     }
 }
