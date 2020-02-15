@@ -14,13 +14,13 @@ import List from '@editorjs/list';
 // QuillJS
 import VueQuillEditor from 'vue-quill-editor';
 
-// // Uppy
-// const Uppy = require('@uppy/core')
-// const Dashboard = require('@uppy/dashboard')
-// const DragDrop = require('@uppy/drag-drop')
-// const FileInput = require('@uppy/file-input')
-// const ProgressBar = require('@uppy/progress-bar')
-// const xhr = require('@uppy/xhr-upload')
+// Uppy
+const Uppy = require('@uppy/core')
+const Dashboard = require('@uppy/dashboard')
+const DragDrop = require('@uppy/drag-drop')
+const FileInput = require('@uppy/file-input')
+const ProgressBar = require('@uppy/progress-bar')
+const xhr = require('@uppy/xhr-upload')
 
 window.Vue = require('vue');
 
@@ -79,25 +79,25 @@ const app = new Vue({
             });
         }
 
-        // const uppyEnabled = document.getElementsByClassName('uppy').length;
-        // if (uppyEnabled) {
-        //     const uppy = Uppy();
+        const uppyEnabled = document.getElementsByClassName('uppy').length;
+        if (uppyEnabled) {
+            const uppy = Uppy();
 
-        //     uppy.use(Dashboard, {
-        //         inline: true,
-        //         target: '.uppy',
-        //     });
+            uppy.use(Dashboard, {
+                inline: true,
+                target: '.uppy',
+            });
 
-        //     uppy.use(xhr, {
-        //         endpoint: 'http://localhost:3000/dashboard/media/upload',
-        //         formData: true,
-        //         fieldName: 'media[]'
-        //     });
+            uppy.use(xhr, {
+                endpoint: 'http://localhost:3000/dashboard/media/upload',
+                formData: true,
+                fieldName: 'media[]'
+            });
 
-        //     uppy.on('complete', (result) => {
-        //         console.log('Upload complete! We’ve uploaded these files:', result.successful)
-        //     });
-        // }
+            uppy.on('complete', (result) => {
+                console.log('Upload complete! We’ve uploaded these files:', result.successful)
+            });
+        }
 
         const form = new Form();
         form.makeCollapse();

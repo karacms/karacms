@@ -46,7 +46,6 @@
 
 - Add auto publish assets feature for activated plugin, when activated
 
-
 # Social Login
     - Facebook
     - Google
@@ -58,17 +57,22 @@
     - Datetime-local Safari, Firefox: Use polyfill
     - Add these deps back:
 
-```
-        "@uppy/core": "1.8.0",
-        "@uppy/dashboard": "1.6.0",
-        "@uppy/drag-drop": "1.4.3",
-        "@uppy/file-input": "1.4.3",
-        "@uppy/informer": "1.4.0",
-        "@uppy/progress-bar": "1.3.5",
-        "@uppy/provider-views": "1.5.3",
-        "@uppy/store-default": "1.2.0",
-        "@uppy/tus": "1.5.3",
-        "@uppy/utils": "2.2.0",
-        "@uppy/xhr-upload": "1.5.0",
-```
+# Editor
 - Remove submit-prevent saveContent()
+
+# Extension System
+- Store activated extension as 
+```
+{
+   extensionName: {
+       status: 'activated'
+       activatedAt: Date(),
+       priority: 10,
+       installedBy: User()
+   },
+   ...
+}
+```
+
+- Extension Store
+- Extension Priority
