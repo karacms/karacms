@@ -56,11 +56,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    $test = ['foo', 'bar', 'baz'];
 
-    $actionName = $test[0];
-
-    array_shift($test);
-
-    dd($test);
 });

@@ -49,8 +49,7 @@
     - Shop
     - Login As - Working
     - Advanced Email
-
-- Add auto publish assets feature for activated plugin, when activated
+    - Markdown
 
 # Social Login
     - Facebook

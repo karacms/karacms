@@ -89,7 +89,7 @@ trait HasMeta
         return $this->meta[$field] = $value;
     }
 
-    public function createMetaFromData($data)
+    public function generateDataWithMeta($data)
     {
         $meta = $this->meta;
 
@@ -112,7 +112,7 @@ trait HasMeta
 
     public function updateWithMeta($data)
     {
-        $data = $this->createMetaFromData($data);
+        $data = $this->generateDataWithMeta($data);
 
         return $this->update($data);
     }
@@ -120,8 +120,21 @@ trait HasMeta
     public static function createWithMeta($data)
     {
         $model  = new self;
-        $data = $model->createMetaFromData($data);
+        $data = $model->generateDataWithMeta($data);
 
         return self::create($data);
+    }
+
+    /**
+     * Override create() method, allows user pass any attributes as meta field
+     *
+     * @return Model
+     */
+    public static function create(array $attributes = [])
+    {
+        $model = new self;
+        $data = $model->generateDataWithMeta($attributes);
+
+        return static::query()->create($data);
     }
 }

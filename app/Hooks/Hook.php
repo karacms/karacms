@@ -10,18 +10,18 @@ class Hook
 
     /**
      * All listeners
-     * 
+     *
      * @var array
      */
     private $actions = [];
 
     /**
      * Add Event Listener
-     * 
+     *
      * @param String $actionName Listener name
      * @param String/callable $callback Callback
      * @param int $priority
-     * 
+     *
      * @return void
      */
     private function add(string $actionName, $callback, $priority = 10, $alias = null)
@@ -54,13 +54,22 @@ class Hook
         if (empty($this->actions) || empty($this->actions[$actionName])) {
             return;
         }
-        
+
         $allHooks = $this->actions[$actionName];
-    
+        // Sort hooks by priority
+        ksort($allHooks);
+
+        $lastReturn = null;
+
         foreach ($allHooks as $priority => $callbacks) {
             foreach ($callbacks as $callback) {
                 if (is_callable($callback)) {
-                    call_user_func_array($callback, $args);
+                    $returnedValue = call_user_func_array($callback, $args);
+
+                    if ($returnedValue !== null) {
+                        $lastReturn = $returnedValue;
+                    }
+
                     continue;
                 }
 
@@ -73,5 +82,7 @@ class Hook
                 }
             }
         }
+
+        return $lastReturn;
     }
 }

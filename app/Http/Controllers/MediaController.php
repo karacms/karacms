@@ -28,6 +28,7 @@ class MediaController extends Controller
         // dd($wallpaperInfo);
 
         $media = Media::ofTag($request->tag)->ofType($request->type)->paginate(20);
+        dd($media);
         $allTags = Media::allAvailableTags();
 
         return frontend('media/index', compact('media', 'allTags'));
@@ -76,7 +77,7 @@ class MediaController extends Controller
         $file = Media::findOrFail($id);
         $allTags = Media::allAvailableTags();
         $fileTags = $file->tags()->pluck('groups.id')->toArray();
-        
+
         return view('media/edit', compact('file', 'allTags', 'fileTags'));
     }
 
@@ -119,7 +120,7 @@ class MediaController extends Controller
 
             $files = $request->file('media');
 
-            foreach ($files as $file) {                
+            foreach ($files as $file) {
                 $fileType = $file->getMimeType();
 
                 $fileName = $file->getClientOriginalName();
@@ -146,16 +147,16 @@ class MediaController extends Controller
                 } else {
                     // Handle Audio: .mp3
                     $getId3SupportedTypes = [
-                        'audio/mpeg', 
-                        'video/avi', 
-                        'video/quicktime', 
-                        'image/png', 
-                        'image/gif', 
-                        'application/pdf', 
+                        'audio/mpeg',
+                        'video/avi',
+                        'video/quicktime',
+                        'image/png',
+                        'image/gif',
+                        'application/pdf',
                         'application/zip',
                         'video/x-matroska'
                     ];
-                    
+
                     $metadataFields = [
                         'audio',
                         'playtime_seconds',
@@ -186,10 +187,10 @@ class MediaController extends Controller
                             foreach ($metadataFields as $analyzedField) {
                                 $analyzedValue = Arr::get($analyzedInfo, $analyzedField);
 
-                                if (is_null($analyzedValue)) { 
+                                if (is_null($analyzedValue)) {
                                     continue;
                                 }
-                                
+
                                 Arr::set($media['meta'], $analyzedField, $analyzedValue);
                             }
                         }
