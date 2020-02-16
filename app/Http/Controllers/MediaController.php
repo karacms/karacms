@@ -28,7 +28,6 @@ class MediaController extends Controller
         // dd($wallpaperInfo);
 
         $media = Media::ofTag($request->tag)->ofType($request->type)->paginate(20);
-        dd($media);
         $allTags = Media::allAvailableTags();
 
         return frontend('media/index', compact('media', 'allTags'));
@@ -130,9 +129,8 @@ class MediaController extends Controller
                     'title' => $fileName,
                     'url' => 'media/uploaded/' . $fileName,
                     'type' => $fileType,
-                    'meta' => [
-                        'size' => $file->getSize()
-                    ]
+                    'size' => $file->getSize(),
+                    'meta' => []
                 ];
 
                 // Handle image manipulation during upload: jpg, jpeg

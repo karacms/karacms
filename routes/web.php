@@ -56,5 +56,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
+    $media = Media::find(2);
+    $media->token = 'token';
 
+    $media->save();
 });

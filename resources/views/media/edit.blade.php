@@ -36,10 +36,10 @@
                 </fieldset>
                 @endif
 
-                @if (isset($file->meta['size']) && is_numeric($file->meta['size']))
+                @if (isset($file->size) && is_numeric($file->size))
                 <fieldset class="mt-3">
                     <label>Size</label>
-                    <input disabled type="text" value="{{number_format($file->meta['size'] / 1024 / 1024, 2)}} MB" class="w-full bg-gray-100 px-2 py-1 text-gray-600" />
+                    <input disabled type="text" value="{{number_format($file->size / 1024 / 1024, 2)}} MB" class="w-full bg-gray-100 px-2 py-1 text-gray-600" />
                 </fieldset>
                 @endif
 
@@ -54,7 +54,7 @@
                 @if (isset($file->meta['playtime_string']))
                 <fieldset class="mt-3">
                     <h4>Duration</h4>
-                    <input disabled type="text" value="{{$file->meta['playtime_string'] ?? 0}}" class="w-full bg-gray-100 px-2 py-1 text-gray-600" /> 
+                    <input disabled type="text" value="{{$file->meta['playtime_string'] ?? 0}}" class="w-full bg-gray-100 px-2 py-1 text-gray-600" />
                 </fieldset>
                 @endif
 
@@ -63,7 +63,7 @@
                     <a class="px-2 py-1 rounded-sm border border-gray-500 text-gray-500" href="{{url('dashboard/media')}}">Go Back</a>
                 </div>
             </section>
-            
+
             <section class="media-preview flex-1">
                 <h3>Preview</h3>
 
@@ -82,6 +82,6 @@
                 @endif
             </section>
         </div>
-        
+
     </form>
 @endsection

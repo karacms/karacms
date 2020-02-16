@@ -3,61 +3,6 @@ namespace App;
 
 trait HasMeta
 {
-    // /**
-    //  * Set meta data
-    //  *
-    //  * @param String $key Meta Key
-    //  * @param mixed $value Meta Value
-    //  *
-    //  * @return bool
-    //  */
-    // public function setMeta($key, $value)
-    // {
-    //     $meta = is_array($this->meta) ? $this->meta : [];
-    //     $meta[$key] = $value;
-    //     $this->meta = $meta;
-
-    //     return $this->save();
-    // }
-
-    // /**
-    //  * Get Meta Data
-    //  *
-    //  * @param String $key Meta Key
-    //  * @param Mixed $default Default value
-    //  *
-    //  * @return mixed
-    //  */
-    // public function getMeta($key = null, $default = null)
-    // {
-    //     if ($key === null) {
-    //         return $this->meta ?? [];
-    //     }
-
-    //     return isset($this->meta[$key]) ? $this->meta[$key] : $default;
-    // }
-
-    // /**
-    //  * Get/Set meta data
-    //  *
-    //  * @param String $key Meta key
-    //  * @param mixed $value Meta value, if null then get the data, otherwise, set the data
-    //  *
-    //  * @return mixed
-    //  */
-    // public function meta($key = null, $value = null)
-    // {
-    //     if (is_null($key)) {
-    //         return $this->getMeta();
-    //     }
-
-    //     if (is_null($value)) {
-    //         return $this->getMeta($key);
-    //     }
-
-    //     return $this->setMeta($key, $value);
-    // }
-
     /**
      * Get/Set the field or meta data
      *
@@ -91,24 +36,18 @@ trait HasMeta
 
     public function generateDataWithMeta($data)
     {
-        $meta = $this->meta;
+        $meta = $data['meta'] ?? [];
 
         foreach ($data as $key => $value) {
-            if (!in_array($key, $this->getFillable()) && !in_array($key, $this->getGuarded())) {
+            if (!in_array($key, $this->getFillable()) && !in_array($key, $this->getGuarded()) && !in_array($key, $this->getDates())) {
                 $meta[$key] = $value;
             }
         }
 
-        $data['meta'] = $meta;
+        $data['meta'] = json_encode($meta);
 
         return $data;
     }
-
-    // public function create($data)
-    // {
-    //     dd('here');
-    //     parent::create();
-    // }
 
     public function updateWithMeta($data)
     {
@@ -136,5 +75,39 @@ trait HasMeta
         $data = $model->generateDataWithMeta($attributes);
 
         return static::query()->create($data);
+    }
+
+    public function __get($key)
+    {
+        $value = $this->getAttribute($key);
+
+        if (!is_null($value)) {
+            return $value;
+        }
+
+        $meta = $this->getAttribute('meta');
+
+        if (is_array($meta) && isset($meta[$key])) {
+            return $meta[$key];
+        }
+
+        return null;
+    }
+
+    public function __set($key, $value)
+    {
+        if (!in_array($key, $this->getFillable()) && !in_array($key, $this->getGuarded()) && !in_array($key, $this->getDates()) && $key !== 'meta') {
+            $meta = $this->getAttribute('meta');
+
+            if (is_null($meta)) {
+                $meta = [];
+            }
+
+            $meta[$key] = $value;
+
+            $this->setAttribute('meta', json_encode($meta));
+        } else {
+            $this->setAttribute($key, $value);
+        }
     }
 }

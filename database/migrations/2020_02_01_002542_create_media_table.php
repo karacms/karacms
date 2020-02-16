@@ -22,11 +22,12 @@ class CreateMediaTable extends Migration
             $table->text('url')->nullable(); // Store the path only
             $table->json('meta')->nullable();
             $table->string('type', 40)->nullable();
+            $table->double('size')->nullable();
             $table->integer('instance_id')->nullable();
-            
+
             // If the media is cloned, resized, cropped, we will store the parent_id
             $table->integer('parent_id')->nullable();
-            
+
             $table->softDeletes();
             $table->timestamps();
         });

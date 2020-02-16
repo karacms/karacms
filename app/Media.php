@@ -9,7 +9,20 @@ class Media extends Model
 {
     use HasCreator, HasMeta;
 
-    protected $fillable = ['title', 'description', 'data', 'url', 'type', 'meta', 'creator_id'];
+    protected $fillable = [
+        'title',
+        'description',
+        'data',
+        'url',
+        'meta',
+        'type',
+        'size',
+        'creator_id',
+        'instance_id',
+        'parent_id',
+        'created_at',
+        'updated_at'
+    ];
 
     protected $casts = [
         'meta' => 'json',
@@ -30,7 +43,7 @@ class Media extends Model
     {
         return $this->hasMany(self::class, 'parent_id', 'id');
     }
-    
+
     public function getAvailableSizes()
     {
         //
@@ -54,7 +67,7 @@ class Media extends Model
 
     public function scopeOfType($query, $value)
     {
-        if ($value === 'image') {
+        if (!empty($value)) {
             return $query->where('type', 'LIKE', '%' . $value . '/%');
         }
 
