@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Extensions\ExtensionsManager;
+use App\Services\DbService;
 use Illuminate\Support\ServiceProvider;
 use App\Setting;
 use Illuminate\Support\Facades\Artisan;
@@ -23,8 +24,12 @@ class ExtensionServiceProvider extends ServiceProvider
         //
     }
 
-    public function boot(ExtensionsManager $em)
+    public function boot(ExtensionsManager $em, DbService $dbService)
     {
+        if (!$dbService->isConnected() || !$dbService->isDbMigrated()) {
+            return;
+        }
+
         $allExtensions = $em->all();
         $activatedExtensions = Setting::get('activated_extensions', []);
 

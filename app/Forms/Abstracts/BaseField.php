@@ -64,6 +64,21 @@ abstract class BaseField
         return $this->form->getFieldData($key, $default);
     }
 
+    public function getParent()
+    {
+        //
+    }
+
+    public function getChildren()
+    {
+        // 
+    }
+
+    public function replaceWith(array $props)
+    {
+        // Replace field content
+    }
+
     public function getViewPath()
     {
         if (isset($this->viewPath)) {

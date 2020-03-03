@@ -13,8 +13,6 @@ class InstallAndUpdate
 {
     protected $migrator;
 
-    protected DbService $dbService;
-
     public function __construct(DbService $dbService)
     {
        $this->dbService = $dbService;
